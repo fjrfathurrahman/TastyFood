@@ -1,9 +1,9 @@
-import { LayoutProps } from "@/lib/types/types"
+import { LayoutProps } from "@/lib/types/types";
 
-export const MainContainer = ({ className, paddingY = "py-12", ...props }: LayoutProps) : JSX.Element => {
+export const MainContainer = ({paddingY = "py-16", ...props }: LayoutProps): JSX.Element => {
   return (
-    <div className={`${className} ${props.padding} ${paddingY} ${props.paddingX} ${props.margin} ${props.marginY} ${props.marginX} ${props.bg} container`} {...props}>
+    <div className={`${props.className} ${props.padding} ${paddingY} ${props.paddingX} container`} {...props}>
       {props.children}
     </div>
-  )
-}
+  );
+};

@@ -1,8 +1,8 @@
 import { LayoutProps } from "@/lib/types/types"
 
-export const SectionLayout = ({ className, ...props }: LayoutProps): JSX.Element => {
+export const SectionLayout = ({...props }: LayoutProps): JSX.Element => {
   return (
-    <section className={`${className} ${props.bg}`}>
+    <section className={`${props.className} ${props.bg}`} {...props}>
       {props.children}
     </section>
   )

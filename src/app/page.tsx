@@ -1,5 +1,13 @@
-import { HeroSection } from "@/components/pages/home/hero";
+import { HerosSection } from "@/components/pages/home/Heros";
+import { HomeGallery } from "@/components/pages/home/HomeGallery";
+import { SummarySection } from "@/components/pages/home/Summary";
 
 export default function Home() {
-  return <HeroSection />;
+  return (
+    <>
+      <HerosSection />
+      <SummarySection />
+      <HomeGallery/>
+    </>
+  );
 }

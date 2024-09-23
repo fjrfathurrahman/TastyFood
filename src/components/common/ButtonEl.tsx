@@ -1,3 +1,5 @@
+"use client";
+
 import { ButtonProps } from "@/lib/types/types";
 
 const ButtonEl = ({ className, width = "w-max", text, icon, children, ...props }: ButtonProps): JSX.Element => {
@@ -6,7 +8,7 @@ const ButtonEl = ({ className, width = "w-max", text, icon, children, ...props }
       return (
         <button
           onClick={props.onClick}
-          className={`${className} ${width} bg-black text-white font-semibold rounded-xl px-16 py-3.5`}
+          className={`${className} ${width} bg-black text-white font-semibold rounded-xl px-12 sm:px-16 py-3.5`}
         >
           {!children && text && icon && (
             <span
@@ -27,7 +29,7 @@ const ButtonEl = ({ className, width = "w-max", text, icon, children, ...props }
       return (
         <button
           onClick={props.onClick}
-          className={`${className} border-2 border-black text-black font-semibold rounded-xl px-16 py-3.5`}
+          className={`${className} border-2 border-black text-black font-semibold rounded-xl px-12 sm:px-16 py-3.5`}
         >
           {!children && text && icon && (
             <span

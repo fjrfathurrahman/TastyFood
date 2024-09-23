@@ -2,13 +2,14 @@ import { BoxFlex, BoxGrid, ButtonEl } from "@/components/common";
 import { MainContainer } from "@/components/containers/MainContainer";
 import { SectionLayout } from "@/components/containers/SectionLayout";
 
-export const HeroSection = (): JSX.Element => {
+export const HerosSection = (): JSX.Element => {
   return (
-    <SectionLayout bg="bg-gray-300">
-      <MainContainer>
-        <BoxGrid gridColumns="grid-cols-2">
+    <SectionLayout bg="bg-gray-200">
+      <MainContainer paddingY="py-24">
+        <BoxGrid className="lg:grid-cols-2">
           <BoxFlex direction="flex-col">
-            <div className="text-7xl uppercase font-light">
+            <div className="w-1/3 lg:w-1/5 h-1 bg-black" />
+            <div className="text-6xl lg:text-7xl uppercase font-light">
               <h1>healthy</h1>
               <h1 className="font-bold">tasty food</h1>
             </div>
@@ -25,6 +26,8 @@ export const HeroSection = (): JSX.Element => {
             </p>
             <ButtonEl text="LIHAT TENTANG KAMI" variant="primary" />
           </BoxFlex>
+
+          {/* Hero Image */}
         </BoxGrid>
       </MainContainer>
     </SectionLayout>
