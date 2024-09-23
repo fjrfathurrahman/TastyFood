@@ -10,7 +10,7 @@ export const GalleryList = (props: { data: ResponseGallery[] }): JSX.Element => 
     <BoxGrid className="md:grid-cols-2 lg:grid-cols-3">
       {!data && <div>Tidak ada data</div>}
       {data && data.map((item) => (
-        <Link href={`/${item.id}`} key={item.id} className="border flex justify-center">
+        <Link href={`/${item.id}`} key={item.id} className="flex justify-center">
           <Image
             src={item.image}
             alt="image"

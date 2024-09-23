@@ -1,14 +1,9 @@
 async function useGetData(url: string) {
   const response = await fetch(url, {
-    next: { revalidate: 30 },
-  });
+    next: { revalidate: 30},
+  }).then((res) => res.json());
 
-  if (!response) {
-    return null;
-  }
-
-  const result = await response.json();
-  return result;
+  return response;
 }
 
 export default useGetData;

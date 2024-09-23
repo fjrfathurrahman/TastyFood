@@ -43,9 +43,7 @@ export interface GridProps extends GlobalProps {
 export interface ApiResponse<T> {
   status: boolean;
   message: string;
-  data?: {
-    data: T[] 
-  };
+  data?: T[] | []
 }
 
 export interface ResponseGallery {
@@ -54,6 +52,24 @@ export interface ResponseGallery {
   image: string;
   description: string;
   category: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface ResponseCompany {
+  id: number;
+  company_name: string;
+  description: string;
+  address: string;
+  address_url: string;
+  facebook: string;
+  instagram: string;
+  twitter: string;
+  linkedin: string;
+  website: string;
+  email: string;
+  phone: string;
+  copyright: string;
   created_at: string;
   updated_at: string;
 }
