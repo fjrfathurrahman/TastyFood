@@ -1,9 +1,10 @@
-import { AllGallery } from "@/components/pages/galeri/AllGallery";
+// import { AllGallery } from "@/components/pages/galeri/AllGallery";
 
 export default function GaleriPage() {
   return (
     <>
-      <AllGallery/>
+      {/* <AllGallery/> */}
+      Hello Gallery
     </>
   );
 }
