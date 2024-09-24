@@ -7,6 +7,8 @@ import { FaUser, FaGithub, FaTwitter, FaSquareFacebook } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
 
+import imageHero from '../../../assets/hero.png'
+
 export const dIcons = {
   user: <FaUser />,
   password: <RiLockPasswordFill />,
@@ -28,12 +30,13 @@ export const dIcons = {
 
 export const dNavigation = {
   menu: [
-    { name: "Home", url: "/", icon: "" },
-    { name: "About", url: "/", icon: "" },
-    { name: "Gallery", url: "/", icon: "" },
-    { name: "Contact", url: "/", icon: "" },
-    { name: "Dashboard", url: "/", icon: null },
-    { name: "Authentication ", url: "/", icon: null },
+    { name: "Home", url: "/", icon: dIcons.home },
+    { name: "Tentang", url: "/tentang", icon: dIcons.food },
+    { name: "Galeri", url: "/galeri", icon: dIcons.gallery },
+    { name: "Berita", url: "/berita", icon: dIcons.news },
+    { name: "Kontak", url: "/kontak", icon: dIcons.contact },
+    { name: "Dashboard", url: "/dashboard", icon: null },
+    { name: "Authentication ", url: "/auth", icon: null },
   ],
   privacy: [
     { name: "Privacy Policy" },
@@ -44,3 +47,7 @@ export const dNavigation = {
     { name: "Terms & Conditions" },
   ],
 };
+
+export const dImages = {
+  hero: imageHero
+}

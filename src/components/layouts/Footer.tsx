@@ -4,13 +4,15 @@ import { SectionLayout } from "../containers/SectionLayout";
 import { ApiResponse, ResponseCompany } from "@/lib/types/types";
 import { dIcons, dNavigation } from "@/lib/data/data";
 
-// TODO : Perbaiki Footer jadikan lebih sederhana
-
 export const Footer = async (): Promise<JSX.Element> => {
   const result: ApiResponse<ResponseCompany> = await fetch(
     "http://localhost:8000/api/company",
     { cache: "force-cache" }
   ).then((res) => res.json());
+
+  if (!result) {
+    throw new Error("Failed to fetch data");
+  }
 
   if (!result.data) {
     return <div>Sepertinya ada kesalahan pada server</div>;

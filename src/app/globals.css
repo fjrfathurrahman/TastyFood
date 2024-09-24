@@ -3,9 +3,15 @@
 @tailwind utilities;
 
 body {
-  @apply relative z-0 w-full h-max bg-white text-black
+  @apply relative z-0 w-full h-max bg-white text-black overflow-x-hidden 
 };
 
 p {
-  @apply text-sm sm:text-base text-pretty
+  @apply text-sm sm:text-base text-pretty select-all
+}
+
+
+/* Style the scrollbar */
+::-webkit-scrollbar {
+  display: none;
 }

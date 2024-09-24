@@ -9,7 +9,7 @@ const GalleryList = dynamic(
     import("@/components/layouts/GalleryList").then(
       (module) => module.GalleryList
     ),
-  { loading: () => null }
+  { loading: () => <div>Loading...</div>}
 );
 
 export const HomeGallery = async (): Promise<JSX.Element>  => {

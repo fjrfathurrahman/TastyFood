@@ -29,7 +29,7 @@ export interface FlexProps extends GlobalProps, LayoutProps {
   direction?: "flex-row" | "flex-row-reverse" | "flex-col" | "flex-col-reverse";
   justify?: "justify-start" | "justify-center" | "justify-end" | "justify-between" | "justify-around";
   align?: "items-start" | "items-center" | "items-end" | "items-stretch";
-  gap?: "gap-2" | "gap-4" | "gap-6" | "gap-8" | "gap-10" | "gap-12";
+  gap?: "gap-2" | "gap-4" | "gap-6" | "gap-8" | "gap-10" | "gap-12" | "gap-14" | "gap-16" | "gap-20" | "gap-24" | "gap-28" | "gap-32";
 }
 
 export interface GridProps extends GlobalProps {

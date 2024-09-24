@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { BoxGrid } from "../common";
-import { Image } from "@nextui-org/react";
 import { ResponseGallery } from "@/lib/types/types";
+import Image from "next/image";
 
 export const GalleryList = (props: { data: ResponseGallery[] }): JSX.Element => {
   const { data } = props;
@@ -14,8 +14,10 @@ export const GalleryList = (props: { data: ResponseGallery[] }): JSX.Element => 
           <Image
             src={item.image}
             alt="image"
-            height={270}
-            isZoomed
+            width={400}
+            height={300}
+            quality={15}
+            className="rounded-2xl"
           />
         </Link>
       ))}
