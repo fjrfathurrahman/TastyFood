@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TastyFood
 
-## Getting Started
+TastyFood adalah aplikasi web yang membantu pengguna menemukan, memesan, dan menikmati makanan lezat. Proyek ini dibangun menggunakan Next.js untuk frontend dan Laravel untuk backend.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Project Overview](#project-overview)
+- [Tech Stack](#tech-stack)
+- [Features](#features)
+- [Usage](#usage)
+- [License](#license)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+TastyFood dirancang untuk menyediakan antarmuka yang intuitif dan responsif agar pengguna dapat menjelajahi menu makanan. Proyek ini terdiri dari:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Frontend** menggunakan **Next.js** untuk tampilan dan interaksi pengguna.
+- **Backend** menggunakan **Laravel** untuk pengelolaan basis data, penanganan request API, dan logika data.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Frontend:
+- **Next.js** (Framework React untuk rendering server-side dan pembuatan situs statis)
+- **Tailwind CSS** (Digunakan untuk styling)
+- **Swiper.js** (Digunakan untuk membuat slider yang responsif)
+- **React-Icons** (Digunakan untuk menambahkan icon ke dalam komponen React)
+- **API MapTiller** (Digunakan untuk menampilkan map interaktif)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Backend:
+- **Laravel** (Framework PHP)
+- **Sqlite** (Untuk basis data)
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Autentikasi dan registrasi admin
+- Menjelajahi menu restoran dan hidangan
+- Halaman admin untuk mengelola data restoran
+- Integrasi API MapTiller untuk menampilkan lokasi restoran
+- Penggunaan **Swiper** untuk galeri gambar produk
+- Penggunaan **React-Icons** untuk icon yang interaktif
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Usage
+
+- Visit `http://localhost:3000` untuk antarmuka frontend.
+- Request API yang dikelola oleh backend yang berjalan di `http://localhost:8000/api`.
+
+
+### License:
+- **API MapTiller**: Digunakan untuk menampilkan peta interaktif, sangat berguna jika aplikasi TastyFood menampilkan lokasi restoran.
+- **Swiper.js**: Untuk galeri gambar atau slider yang responsif, seperti untuk menampilkan foto-foto menu.
+- **React-Icons**: Untuk ikon-ikon visual yang bisa digunakan di berbagai komponen.
+- **Tailwind CSS**: Untuk memudahkan dalam styling UI yang fleksibel dan cepat.

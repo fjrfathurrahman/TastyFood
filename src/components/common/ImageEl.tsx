@@ -3,7 +3,7 @@ import Image, { StaticImageData } from "next/image"
 interface PropsImage {
   src: string | StaticImageData
   width?: 'w-72' | 'w-80' | 'w-96' | 'w-full'
-  height?: 'h-72' | 'h-80' | 'h-96'| 'h-full'
+  height?: 'h-24' | 'h-72' | 'h-80' | 'h-96'| 'h-full'
   className?: string
   position?: 'absolute' | 'relative'
   rounded?: 'rounded-none' | 'rounded' | 'rounded-2xl' | 'rounded-3xl'

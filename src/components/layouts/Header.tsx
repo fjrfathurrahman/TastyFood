@@ -16,7 +16,7 @@ export const Header = (): JSX.Element => {
           <h1 className="text-white uppercase text-2xl md:text-3xl font-bold">{pathName.slice(1)} KAMI</h1>
         </MainContainer>
       </div>
-      <ImageEl src={header} className="h-56 brightness-75" rounded="rounded-none" />
+      <ImageEl src={header} className="h-56 lg:h-72 brightness-75" rounded="rounded-none" />
     </SectionLayout>
   );
 };

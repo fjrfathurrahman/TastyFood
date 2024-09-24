@@ -1,5 +1,3 @@
-"use client";
-
 import { ButtonProps } from "@/lib/types/types";
 
 const ButtonEl = ({ className, width = "w-max", text, icon, children, ...props }: ButtonProps): JSX.Element => {

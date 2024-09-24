@@ -1,24 +1,27 @@
 import Link from "next/link";
-import { BoxGrid } from "../common";
+import { BoxFlex, BoxGrid, ImageEl } from "../common";
 import { ResponseGallery } from "@/lib/types/types";
-import Image from "next/image";
+import { dImages } from "@/lib/data/data";
 
-export const GalleryList = (props: { data: ResponseGallery[] }): JSX.Element => {
+export const GalleryList = (props: {
+  data: ResponseGallery[];
+}): JSX.Element => {
   const { data } = props;
+
+  if (!data || data.length === 0) {
+    return (
+      <BoxFlex direction="flex-col" align="items-center" justify="justify-center">
+        <ImageEl src={dImages.notData} width="w-80" height="h-96" />
+        <h1 className="italic font-semibold text-xl text-center">Oops! Sepertinya tidak ada data untuk ditampilkan saat ini</h1>
+      </BoxFlex>
+    );
+  }
 
   return (
     <BoxGrid className="md:grid-cols-2 lg:grid-cols-3">
-      {!data && <div>Tidak ada data</div>}
-      {data && data.map((item) => (
+      {data.map((item) => (
         <Link href={`/${item.id}`} key={item.id} className="flex justify-center">
-          <Image
-            src={item.image}
-            alt="image"
-            width={400}
-            height={300}
-            quality={15}
-            className="rounded-2xl"
-          />
+          <ImageEl src={item.image} />
         </Link>
       ))}
     </BoxGrid>

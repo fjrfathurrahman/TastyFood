@@ -8,6 +8,8 @@ import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
 
 import imageHero from "../../../assets/hero.png";
+import imagenotdata from "../../../assets/nofounddata.png";
+import imagenotfound from "../../../assets/notfound.png";
 import imageAbout1 from "../../../assets/about1.jpg";
 import imageAbout2 from "../../../assets/about2.jpg";
 import imageAbout3 from "../../../assets/about3.jpg";
@@ -55,6 +57,8 @@ export const dNavigation = {
 
 export const dImages = {
   hero: imageHero,
+  notData: imagenotdata,
+  notPage: imagenotfound,
   about: [
     { image: imageAbout1 },
     { image: imageAbout2 },

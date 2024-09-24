@@ -3,12 +3,10 @@ import { MainContainer } from "../containers/MainContainer";
 import { SectionLayout } from "../containers/SectionLayout";
 import { ApiResponse, ResponseCompany } from "@/lib/types/types";
 import { dIcons, dNavigation } from "@/lib/data/data";
+import useGetData from "@/lib/hook/useGetData";
 
 export const Footer = async (): Promise<JSX.Element> => {
-  const result: ApiResponse<ResponseCompany> = await fetch(
-    "http://localhost:8000/api/company",
-    { cache: "force-cache" }
-  ).then((res) => res.json());
+  const result: ApiResponse<ResponseCompany> = await useGetData({url: 'http://localhost:8000/api/company', revalidate: 7200});
 
   if (!result) {
     throw new Error("Failed to fetch data");
@@ -88,6 +86,7 @@ const BodyFooter = (props: { data: ResponseCompany[] }) => {
           variant="withIcon"
           text={result.address}
           icon={dIcons.location}
+          url={dIcons.location}
         />
       </BoxFlex>
     </BoxGrid>

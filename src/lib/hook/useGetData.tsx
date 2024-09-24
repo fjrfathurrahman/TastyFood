@@ -1,6 +1,6 @@
-async function useGetData(url: string) {
+async function useGetData({url, revalidate = 60}: {url: string; revalidate?: number}) {
   const response = await fetch(url, {
-    next: { revalidate: 120},
+    next: { revalidate: revalidate},
     cache: "force-cache",
   }).then((res) => res.json());
 

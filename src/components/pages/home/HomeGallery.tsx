@@ -9,25 +9,27 @@ const GalleryListComponent = dynamic(
     import("@/components/layouts/GalleryList").then(
       (module) => module.GalleryList
     ),
-  { loading: () => null}
+  { loading: () => null }
 );
 
-export const HomeGallery = async (): Promise<JSX.Element>  => {
+export const HomeGallery = async (): Promise<JSX.Element> => {
   const result: ApiResponse<ResponseGallery> = await useGetData(
     "http://localhost:8000/api/gallery"
   );
 
   if (result.data === undefined) {
-    return <div>Sepertinya ada kesalahan pada server</div>
+    return <div>Sepertinya ada kesalahan pada server</div>;
   }
 
   return (
     <MainContainer>
       <TittleEl text="Galeri Kami" textAlign="text-center" />
-      {result.data.length < 0 ? <div>Data galeri tidak ditemukan</div> : <GalleryListComponent data={result.data} /> }
-      <div className="mt-8 flex justify-center">
-        <ButtonEl text="LIHAT LEBIH BANYAK" variant="primary" />
-      </div>
+      <GalleryListComponent data={result.data} />
+      {result.data.length > 0 && (
+        <div className="mt-8 flex justify-center">
+          <ButtonEl text="LIHAT LEBIH BANYAK" variant="primary" />
+        </div>
+      )}
     </MainContainer>
   );
 };

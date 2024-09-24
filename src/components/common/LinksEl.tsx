@@ -2,7 +2,7 @@ import Link from "next/link";
 
 interface PropsLinks {
   className?: string;
-  url?: string;
+  url?: string | URL | object;
   text?: string;
   icon?: string | React.ReactNode;
   variant?: "withIcon" | "Icon" | "link";
