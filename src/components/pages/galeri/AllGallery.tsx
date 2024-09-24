@@ -1,4 +1,3 @@
-import { ButtonEl, TittleEl } from "@/components/common";
 import { MainContainer } from "@/components/containers/MainContainer";
 import useGetData from "@/lib/hook/useGetData";
 import { ApiResponse, ResponseGallery } from "@/lib/types/types";
@@ -12,7 +11,8 @@ const GalleryListComponent = dynamic(
   { loading: () => null}
 );
 
-export const HomeGallery = async (): Promise<JSX.Element>  => {
+
+export const AllGallery = async (): Promise<JSX.Element> => {
   const result: ApiResponse<ResponseGallery> = await useGetData(
     "http://localhost:8000/api/gallery"
   );
@@ -23,11 +23,7 @@ export const HomeGallery = async (): Promise<JSX.Element>  => {
 
   return (
     <MainContainer>
-      <TittleEl text="Galeri Kami" textAlign="text-center" />
-      {result.data.length < 0 ? <div>Data galeri tidak ditemukan</div> : <GalleryListComponent data={result.data} /> }
-      <div className="mt-8 flex justify-center">
-        <ButtonEl text="LIHAT LEBIH BANYAK" variant="primary" />
-      </div>
+      <GalleryListComponent data={result.data} />
     </MainContainer>
-  );
-};
+  )
+}

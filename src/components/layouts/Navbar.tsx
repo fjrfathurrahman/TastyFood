@@ -4,28 +4,29 @@ import { MainContainer } from "../containers/MainContainer";
 import { SectionLayout } from "../containers/SectionLayout";
 import { BoxFlex, LinksEl } from "../common";
 import { dIcons, dNavigation } from "@/lib/data/data";
-import * as React from "react";
 import { usePathname } from "next/navigation";
+import { FlexProps } from "@/lib/types/types";
 import useBreakpoints from "@/lib/hook/useMediaQuery";
+import * as React from "react";
 
-export const Navigation = (): JSX.Element => {
-  const {isLarge, isLessThanSmall} = useBreakpoints();
+export const Navigation = (props: FlexProps): JSX.Element => {
+  const { isLessThanSmall, isSmall  } = useBreakpoints();
 
-  if (isLarge || isLessThanSmall) {
+  if (isSmall || isLessThanSmall) {
     return <NavbarMobile />;
   } else {
-    return <NavbarDesktop />;
+    return <NavbarDesktop {...props} />;
   }
-
 };
 
-const NavbarDesktop = (): JSX.Element => {
+
+const NavbarDesktop = (props: FlexProps): JSX.Element => {
   const pathName = usePathname();
 
   return (
     <SectionLayout className="absolute top-0 z-50 w-full">
       <MainContainer paddingY="py-6">
-        <BoxFlex align="items-center" justify="justify-between" className="xl:justify-start xl:gap-16">
+        <BoxFlex align="items-center" {...props}>
           <LinksEl
             className="min-w-max *:text-2xl xl:*:text-3xl *:font-bold uppercase"
             text="Tasty Food"
@@ -35,7 +36,12 @@ const NavbarDesktop = (): JSX.Element => {
           />
           <BoxFlex gap="gap-6">
             {dNavigation.menu.slice(0, 5).map((item) => (
-              <LinksEl key={item.name} text={item.name} url={item.url} className={`${pathName === item.url ? "underline decoration-wavy" : ""} lg:text-xl`} />
+              <LinksEl
+                key={item.name}
+                text={item.name}
+                url={item.url}
+                className={`${ pathName === item.url ? "underline decoration-wavy" : null} lg:text-xl`}
+              />
             ))}
           </BoxFlex>
         </BoxFlex>
@@ -60,10 +66,7 @@ const NavbarMobile = (): JSX.Element => {
         />
       </MainContainer>
 
-      <MainContainer
-        className="fixed bottom-6 z-50 w-full"
-        paddingY="py-4"
-      >
+      <MainContainer className="fixed bottom-6 z-50 w-full" paddingY="py-4">
         <BoxFlex
           className="w-[280px] sm:w-1/2 px-6 py-3.5 mx-auto rounded-2xl bg-white/50 border-t backdrop-blur shadow-md"
           align="items-center"

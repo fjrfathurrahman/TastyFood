@@ -7,7 +7,7 @@ export interface LayoutProps extends GlobalProps {
   width?: "w-full" | "w-max" | "w-1/2" | "w-1/3" | "w-1/4" | "w-1/5";
   height?: "h-full" | "h-max";
   padding?: "p-2" | "p-4" | "p-6" | "p-8" | "p-10" | "p-12" | "p-14" | "p-16" | "p-20" | "p-24" | "p-28" | "p-32";
-  paddingY?: "py-2" | "py-4" | "py-6" | "py-8" | "py-10" | "py-12" | "py-14" | "py-16" | "py-20" | "py-24" | "py-28" | "py-32";
+  paddingY?: "py-0" | "py-2" | "py-4" | "py-6" | "py-8" | "py-10" | "py-12" | "py-14" | "py-16" | "py-20" | "py-24" | "py-28" | "py-32";
   paddingX?: "px-2" | "px-4" | "px-6" | "px-8" | "px-10" | "px-12" | "px-14" | "px-16" | "px-20" | "px-24" | "px-28" | "px-32";
   margin?: "m-2" | "m-4" | "m-6" | "m-8" | "m-10" | "m-12";
   marginY?: "my-2" | "my-4" | "my-6" | "my-8" | "my-10" | "my-12";

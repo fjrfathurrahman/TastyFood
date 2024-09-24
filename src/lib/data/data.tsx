@@ -2,12 +2,17 @@ import { AiOutlineHome } from "react-icons/ai";
 import { RiContactsLine, RiLockPasswordFill, RiInstagramFill } from "react-icons/ri";
 import { GrGallery } from "react-icons/gr";
 import { IoFastFoodOutline, IoNewspaperOutline } from "react-icons/io5";
-import { MdEmail, MdOutlineLocalPhone, MdOutlineLocationOn } from "react-icons/md";
+import { MdEmail, MdOutlineLocalPhone, MdOutlineLocationOn,} from "react-icons/md";
 import { FaUser, FaGithub, FaTwitter, FaSquareFacebook } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
 
-import imageHero from '../../../assets/hero.png'
+import imageHero from "../../../assets/hero.png";
+import imageAbout1 from "../../../assets/about1.jpg";
+import imageAbout2 from "../../../assets/about2.jpg";
+import imageAbout3 from "../../../assets/about3.jpg";
+import imageAbout4 from "../../../assets/about4.jpg";
+import imageAbout5 from "../../../assets/about5.jpg";
 
 export const dIcons = {
   user: <FaUser />,
@@ -49,5 +54,12 @@ export const dNavigation = {
 };
 
 export const dImages = {
-  hero: imageHero
-}
+  hero: imageHero,
+  about: [
+    { image: imageAbout1 },
+    { image: imageAbout2 },
+    { image: imageAbout3 },
+    { image: imageAbout4 },
+    { image: imageAbout5 },
+  ],
+};

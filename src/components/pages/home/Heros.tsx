@@ -40,6 +40,7 @@ export const HerosSection = (): JSX.Element => {
                 width={700}
                 height={700}
                 quality={30}
+                priority
               />
             </div>
           ) : null}
