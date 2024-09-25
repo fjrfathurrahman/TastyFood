@@ -18,7 +18,7 @@ export const HomeGallery = async (): Promise<JSX.Element> => {
   });
 
   if (result.data === undefined) {
-    return <div>Sepertinya ada kesalahan pada server</div>;
+    return <div className="text-center">Sepertinya ada kesalahan pada server</div>;
   }
 
   return (

@@ -7,7 +7,7 @@ import { SummarySection } from "@/components/pages/home/Summary";
 export default function Home() {
   return (
     <>
-      <Navigation gap="gap-14" />
+      <Navigation gap="gap-20" />
       <HerosSection />
       <SummarySection />
       <HomeGallery />

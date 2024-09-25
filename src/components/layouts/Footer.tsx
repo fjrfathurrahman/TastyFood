@@ -9,7 +9,7 @@ export const Footer = async (): Promise<JSX.Element> => {
   const result: ApiResponse<ResponseCompany> = await useGetData({url: 'http://localhost:8000/api/company', revalidate: 7200});
 
   if (!result.data) {
-    return <div>Sepertinya ada kesalahan pada server</div>;
+    return <div className="text-center">Sepertinya ada kesalahan pada server</div>;
   }
 
   return (

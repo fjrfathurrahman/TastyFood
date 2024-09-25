@@ -68,14 +68,14 @@ export interface ButtonProps extends GlobalProps, LayoutProps {
 }
 
 export interface LinkProps extends GlobalProps {
-  url: string | URL | undefined;
+  url?: string | URL | object;
   icon?: React.ReactNode;
   variant?: "withIcon" | "Icon" | "link";
   text?: string;
 }
 
 export interface ImageProps extends GlobalProps, SizingProps, SpacingProps {
-  src: string | StaticImageData
+  src: string | StaticImageData | object | undefined;
   position?: 'absolute' | 'relative'
   rounded?: 'rounded-none' | 'rounded' | 'rounded-2xl' | 'rounded-3xl'
 }

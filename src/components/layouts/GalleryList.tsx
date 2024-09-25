@@ -12,7 +12,7 @@ export const GalleryList = (props: {
     return (
       <BoxFlex direction="flex-col" align="items-center" justify="justify-center">
         <ImageEl src={dImages.notData} width="w-80" height="h-96" />
-        <h1 className="italic font-semibold text-xl text-center">Oops! Sepertinya tidak ada data untuk ditampilkan saat ini</h1>
+        <h1 className="italic font-semibold text-lg sm:text-xl text-center">Oops! Sepertinya tidak ada <br /> data untuk ditampilkan saat ini.</h1>
       </BoxFlex>
     );
   }

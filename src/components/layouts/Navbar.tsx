@@ -55,7 +55,7 @@ const NavbarMobile = (): JSX.Element => {
     <>
       <MainContainer
         className="fixed top-0 z-50 w-full border-b shadow-sm bg-white/50 backdrop-blur"
-        paddingY="py-8"
+        paddingY="py-4"
       >
         <LinksEl
           className="*:text-2xl *:font-bold uppercase"

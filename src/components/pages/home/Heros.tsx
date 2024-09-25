@@ -33,7 +33,7 @@ export const HerosSection = (): JSX.Element => {
           </BoxFlex>
 
           {isLarge || isXLarge ? (
-            <div className="hidden lg:block absolute top-0 xl:-top-36 translate-x-3/4 xl:translate-x-[110%] ">
+            <div className="hidden lg:block absolute top-0 xl:-top-36 translate-x-3/4 xl:translate-x-[110%]">
               <Image
                 src={dImages.hero}
                 alt="hero"
