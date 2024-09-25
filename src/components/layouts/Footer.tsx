@@ -8,10 +8,6 @@ import useGetData from "@/lib/hook/useGetData";
 export const Footer = async (): Promise<JSX.Element> => {
   const result: ApiResponse<ResponseCompany> = await useGetData({url: 'http://localhost:8000/api/company', revalidate: 7200});
 
-  if (!result) {
-    throw new Error("Failed to fetch data");
-  }
-
   if (!result.data) {
     return <div>Sepertinya ada kesalahan pada server</div>;
   }

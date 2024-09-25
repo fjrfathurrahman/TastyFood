@@ -12,7 +12,7 @@ import { MainContainer } from "../containers/MainContainer";
  * @returns Merender Elemen JSX yang mewakili komponen peta.
 
  */
-export default function MapComponent() {
+export default function MapComponent(): JSX.Element {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maptilersdk.Map | null>(null);
   const zoomLevel = 14;

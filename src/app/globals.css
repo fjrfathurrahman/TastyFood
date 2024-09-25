@@ -2,14 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply relative z-0 w-full h-max bg-white text-black overflow-x-hidden 
-};
+@layer base {
+  body {
+    @apply relative z-0 w-full h-max bg-white text-black overflow-x-hidden;
+  }
 
-p {
-  @apply text-sm sm:text-base text-pretty select-all
+  p {
+    @apply text-sm sm:text-base text-pretty select-all;
+  }
 }
 
+@layer components {
+  .btnPrimary {
+    @apply bg-black text-white font-semibold rounded-xl px-12 sm:px-16 py-3.5 !important;
+  }
+
+  .btnBordered {
+    @apply border-2 border-black text-black font-semibold rounded-xl px-12 sm:px-16 py-3.5;
+  }
+}
 
 /* Style the scrollbar */
 ::-webkit-scrollbar {

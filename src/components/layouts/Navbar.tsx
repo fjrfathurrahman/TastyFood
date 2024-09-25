@@ -25,7 +25,7 @@ const NavbarDesktop = (props: FlexProps): JSX.Element => {
 
   return (
     <SectionLayout className="absolute top-0 z-50 w-full">
-      <MainContainer paddingY="py-6">
+      <MainContainer paddingY="py-8">
         <BoxFlex align="items-center" {...props}>
           <LinksEl
             className="min-w-max *:text-2xl xl:*:text-3xl *:font-bold uppercase"
@@ -34,7 +34,7 @@ const NavbarDesktop = (props: FlexProps): JSX.Element => {
             icon={dIcons.food}
             variant="withIcon"
           />
-          <BoxFlex gap="gap-6">
+          <BoxFlex gap="gap-8">
             {dNavigation.menu.slice(0, 5).map((item) => (
               <LinksEl
                 key={item.name}
@@ -55,7 +55,7 @@ const NavbarMobile = (): JSX.Element => {
     <>
       <MainContainer
         className="fixed top-0 z-50 w-full border-b shadow-sm bg-white/50 backdrop-blur"
-        paddingY="py-6"
+        paddingY="py-8"
       >
         <LinksEl
           className="*:text-2xl *:font-bold uppercase"
@@ -66,9 +66,9 @@ const NavbarMobile = (): JSX.Element => {
         />
       </MainContainer>
 
-      <MainContainer className="fixed bottom-6 z-50 w-full" paddingY="py-4">
+      <MainContainer className="fixed bottom-8 z-50 w-full" paddingY="py-4">
         <BoxFlex
-          className="w-[280px] sm:w-1/2 px-6 py-3.5 mx-auto rounded-2xl bg-white/50 border-t backdrop-blur shadow-md"
+          className="w-[280px] sm:w-1/2 px-8 py-3.5 mx-auto rounded-2xl bg-white/50 border-t backdrop-blur shadow-md"
           align="items-center"
           justify="justify-between"
         >

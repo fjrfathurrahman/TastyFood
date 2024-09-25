@@ -8,22 +8,21 @@ const GalleryListComponent = dynamic(
     import("@/components/layouts/GalleryList").then(
       (module) => module.GalleryList
     ),
-  { loading: () => null}
+  { loading: () => null }
 );
 
-
 export const AllGallery = async (): Promise<JSX.Element> => {
-  const result: ApiResponse<ResponseGallery> = await useGetData(
-    "http://localhost:8000/api/gallery"
-  );
+  const result: ApiResponse<ResponseGallery> = await useGetData({
+    url: "http://localhost:8000/api/gallery",
+  });
 
   if (result.data === undefined) {
-    return <div>Sepertinya ada kesalahan pada server</div>
+    return <div>Sepertinya ada kesalahan pada server</div>;
   }
 
   return (
     <MainContainer>
       <GalleryListComponent data={result.data} />
     </MainContainer>
-  )
-}
+  );
+};
