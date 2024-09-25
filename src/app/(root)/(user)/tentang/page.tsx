@@ -3,7 +3,7 @@ import { MainContainer } from "@/components/containers/MainContainer";
 import { SectionLayout } from "@/components/containers/SectionLayout";
 import { dImages } from "@/lib/data/data";
 
-export default function TentangPage() {
+export default function TentangPage(): JSX.Element {
   return (
     <>
       <AboutComponent />

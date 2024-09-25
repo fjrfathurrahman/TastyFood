@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    @apply m-0 p-0 box-border border-gray-400;
+  }
+
   body {
     @apply relative z-0 w-full h-max bg-white text-black overflow-x-hidden;
   }
@@ -14,11 +18,20 @@
 
 @layer components {
   .btnPrimary {
-    @apply bg-black text-white font-semibold rounded-xl px-12 sm:px-16 py-3.5 !important;
+    @apply bg-black text-white font-semibold rounded-xl px-14 py-3.5;
   }
 
   .btnBordered {
-    @apply border-2 border-black text-black font-semibold rounded-xl px-12 sm:px-16 py-3.5;
+    @apply border-2 border-black text-black font-semibold rounded-xl px-14 py-3.5;
+  }
+}
+
+@layer utilities {
+  input::placeholder {
+    @apply font-semibold text-black;
+  }
+  input:focus {
+    @apply outline-none;
   }
 }
 

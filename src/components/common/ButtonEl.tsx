@@ -1,9 +1,9 @@
 import { ButtonProps } from "@/lib/types/types";
 
-const ButtonEl = ({ className, width = "w-max", ...props }: ButtonProps): JSX.Element => {
+const ButtonEl = ({ className, variant = "primary", width = "w-max", ...props }: ButtonProps): JSX.Element => {
   let style = '';
 
-  switch (props.variant) {
+  switch (variant) {
     case 'primary':
       style = 'btnPrimary';
       break;

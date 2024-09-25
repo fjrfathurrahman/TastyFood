@@ -6,7 +6,7 @@ export const SwiperImageComponent = dynamic(() => import("@/components/pages/gal
   loading: () => null
 })
 
-export default function GaleriPage() {
+export default function GaleriPage(): JSX.Element {
   return (
     <>
       <SwiperImageComponent />

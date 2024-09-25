@@ -80,6 +80,17 @@ export interface ImageProps extends GlobalProps, SizingProps, SpacingProps {
   rounded?: 'rounded-none' | 'rounded' | 'rounded-2xl' | 'rounded-3xl'
 }
 
+export interface InputProps extends GlobalProps {
+  type?: "text" | "email" | "password" | "tel" | "number" | "url" | "search" | "date" | "time" | "color" | "file" | "range" | "hidden" | "submit" | "reset" | "button";
+  placeholder?: string;
+  id?: string;
+  name?: string;
+  value?: string;
+  label?: string;
+  icon?: React.ReactNode;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
 
 // * API RESPONSE INTERFACE
 export interface ApiResponse<T> {
