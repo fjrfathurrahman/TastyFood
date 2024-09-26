@@ -15,7 +15,7 @@ const ButtonEl = ({ className, variant = "primary", width = "w-max", ...props }:
   }
 
   return (
-    <button onClick={props.onClick} type={props.type} className={`${className} ${width} ${style}`}>
+    <button onClick={props.onClick} type={props.type} className={`${className} ${width} ${style} flex items-center justify-center`}>
       {props.children}
       {props.icon}
       {props.text}

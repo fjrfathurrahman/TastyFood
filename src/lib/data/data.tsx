@@ -42,8 +42,8 @@ export const dNavigation = {
     { name: "Galeri", url: "/galeri", icon: dIcons.gallery },
     { name: "Berita", url: "/berita", icon: dIcons.news },
     { name: "Kontak", url: "/kontak", icon: dIcons.contact },
-    { name: "Dashboard", url: "/dashboard", icon: null },
-    { name: "Authentication ", url: "/auth", icon: null },
+    { name: "Dashboard", url: "/admin/dashboard", icon: null },
+    { name: "Authentication ", url: "/admin/auth", icon: null },
   ],
   privacy: [
     { name: "Privacy Policy" },

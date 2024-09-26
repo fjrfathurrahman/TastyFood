@@ -4,7 +4,7 @@
 
 @layer base {
   * {
-    @apply m-0 p-0 box-border border-gray-400;
+    @apply border-gray-400;
   }
 
   body {
@@ -14,21 +14,25 @@
   p {
     @apply text-sm sm:text-base text-pretty select-all;
   }
+
+  input {
+    @apply font-semibold text-black w-full py-2 sm:py-3 sm:text-base;
+  }
 }
 
 @layer components {
   .btnPrimary {
-    @apply bg-black text-white font-semibold rounded-xl px-14 py-3.5;
+    @apply bg-black text-white font-semibold rounded-lg sm:rounded-xl px-12 py-2.5 sm:px-14 sm:py-3.5;
   }
 
   .btnBordered {
-    @apply border-2 border-black text-black font-semibold rounded-xl px-14 py-3.5;
+    @apply border-2 border-black text-black font-semibold rounded-lg sm:rounded-xl px-12 py-2.5 sm:px-14 sm:py-3.5;
   }
 }
 
 @layer utilities {
   input::placeholder {
-    @apply font-semibold text-black;
+    @apply font-semibold text-gray-700 text-xs sm:text-sm;
   }
   input:focus {
     @apply outline-none;

@@ -1,7 +1,7 @@
 import { StaticImageData } from "next/image";
 
 type WidthOptions = 'w-full' | 'w-max' | 'w-auto' | 'w-0' | 'w-4' | 'w-8' | 'w-12' | 'w-16' | 'w-20' | 'w-24' | 'w-32' | 'w-44' | 'w-72' | 'w-80' | 'w-96'| 'w-3/12' |  'w-1/2' | 'w-3/4' ;
-type HeightOptions = 'h-full' | 'h-max' | 'h-auto' | 'h-0' | 'h-4' | 'h-8' | 'h-12' | 'h-16' | 'h-20' | 'h-24' | 'h-32' | 'h-44' | 'h-72' | 'h-80' | 'h-96' | 'h-3/12' |  'h-1/2' | 'h-3/4' ;
+type HeightOptions = 'h-full' | 'h-max' | 'h-auto' | 'h-screen' | 'h-0' | 'h-4' | 'h-8' | 'h-12' | 'h-16' | 'h-20' | 'h-24' | 'h-32' | 'h-44' | 'h-72' | 'h-80' | 'h-96' | 'h-3/12' |  'h-1/2' | 'h-3/4' ;
 type PaddingOptions = 'p-auto' | 'p-0' | 'p-4' | 'p-8' | 'p-12' | 'p-16' | 'p-20' | 'p-24' | 'p-28' | 'p-32' | 'p-44' | 'p-72';
 type PaddingYOptions = 'py-auto' | 'py-0' | 'py-4' | 'py-8' | 'py-12' | 'py-16' | 'py-20' | 'py-24' | 'py-28' | 'py-32' | 'py-44' | 'py-72';
 type PaddingXOptions = 'px-auto' | 'px-0' | 'px-4' | 'px-8' | 'px-12' | 'px-16' | 'px-20' | 'px-24' | 'px-28' | 'px-32' | 'px-44' | 'px-72';
