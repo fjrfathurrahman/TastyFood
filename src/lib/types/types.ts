@@ -75,7 +75,7 @@ export interface LinkProps extends GlobalProps {
 }
 
 export interface ImageProps extends GlobalProps, SizingProps, SpacingProps {
-  src: string | StaticImageData | object | undefined;
+  src: string | StaticImageData;
   position?: 'absolute' | 'relative'
   rounded?: 'rounded-none' | 'rounded' | 'rounded-2xl' | 'rounded-3xl'
 }

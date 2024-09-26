@@ -1,7 +1,7 @@
 import { ButtonEl, TittleEl } from "@/components/common";
 import { MainContainer } from "@/components/containers/MainContainer";
+import { useGetData } from "@/lib/hook/useGetData";
 import { ApiResponse, ResponseGallery } from "@/lib/types/types";
-import useGetData from "@/lib/hook/useGetData";
 import dynamic from "next/dynamic";
 
 const GalleryListComponent = dynamic(

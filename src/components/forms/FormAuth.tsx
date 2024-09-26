@@ -3,18 +3,15 @@ import { BoxFlex, ButtonEl, InputEl } from "../common";
 import { dIcons } from "@/lib/data/data";
 import { useState } from "react";
 
-const FormAuthMobile = (): JSX.Element => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+
+export const FormAuthentication = (): JSX.Element => {
+  const [value, setValue] = useState({username: '', email:'', password: ''});
   const [loading, setLoading] = useState(false);
 
   const onSubmitLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    const url = new URL(
-      process.env.NEXT_PUBLIC_BACKEND_URL + "api/login" || ""
-    );
-    const data = { username, email, password };
+    const url = new URL( process.env.NEXT_PUBLIC_BACKEND_URL + "api/login" || "" );
+  const data = { username: value.username, email: value.email, password: value.password };
     setLoading(true);
     const result = await handleLogin({ url, data });
 
@@ -23,23 +20,23 @@ const FormAuthMobile = (): JSX.Element => {
   };
 
   return (
-    <form className="w-full space-y-8" onSubmit={onSubmitLogin}>
+    <form className="w-full space-y-8 sm:w-max sm:px-8 sm:py-16 mx-auto sm:border sm:rounded-3xl" onSubmit={onSubmitLogin}>
       <HeaderForm />
       <BoxFlex direction="flex-col">
         <InputEl
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={(e) => setValue({...value, username: e.target.value})}
           placeholder="Masukkan Username Anda"
           type="text"
           icon={dIcons.user}
         />
         <InputEl
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setValue({...value, email: e.target.value})}
           placeholder="Masukkan Email Anda"
           type="email"
           icon={dIcons.email}
         />
         <InputEl
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => setValue({...value, password: e.target.value})}
           placeholder="Masukkan Password Anda"
           type="password"
           icon={dIcons.password}
@@ -57,65 +54,6 @@ const FormAuthMobile = (): JSX.Element => {
   );
 };
 
-const FormAuthDesktop = (): JSX.Element => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const onSubmitLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const url = new URL(
-      process.env.NEXT_PUBLIC_BACKEND_URL + "api/login" || ""
-    );
-    const data = { username, email, password };
-    setLoading(true);
-    const result = await handleLogin({ url, data });
-
-    setLoading(false);
-    return result;
-  };
-
-  return (
-    <div>
-      <form
-        className="w-max px-8 py-16 mx-auto border rounded-3xl flex flex-col gap-8"
-        onSubmit={onSubmitLogin}
-      >
-        <HeaderForm />
-        <BoxFlex direction="flex-col">
-          <InputEl
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="Masukkan Username Anda"
-            type="text"
-            icon={dIcons.user}
-          />
-          <InputEl
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Masukkan Email Anda"
-            type="email"
-            icon={dIcons.email}
-          />
-          <InputEl
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Masukkan Password Anda"
-            type="password"
-            icon={dIcons.password}
-          />
-        </BoxFlex>
-        <div>
-          <ButtonEl
-            text={loading ? "Loading..." : "Login"}
-            width="w-full"
-            type="submit"
-          />
-        </div>
-        <FooterForm />
-      </form>
-    </div>
-  );
-};
-
 const HeaderForm = (): JSX.Element => {
   return (
     <div>
@@ -130,7 +68,7 @@ const FooterForm = (): JSX.Element => {
     <BoxFlex direction="flex-col">
       <BoxFlex align="items-center">
         <div className="h-1 w-full bg-black rounded-full" />
-        <p className="min-w-max font-semibold">Atau dengan</p>
+        <p className="min-w-max font-semibold text-sm sm:text-base">Atau dengan</p>
         <div className="h-1 w-full bg-black rounded-full" />
       </BoxFlex>
 
@@ -161,5 +99,3 @@ const FooterForm = (): JSX.Element => {
     </BoxFlex>
   );
 };
-
-export { FormAuthDesktop, FormAuthMobile };

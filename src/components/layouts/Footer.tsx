@@ -3,12 +3,12 @@ import { MainContainer } from "../containers/MainContainer";
 import { SectionLayout } from "../containers/SectionLayout";
 import { ApiResponse, ResponseCompany } from "@/lib/types/types";
 import { dIcons, dNavigation } from "@/lib/data/data";
-import useGetData from "@/lib/hook/useGetData";
+import { useGetDataForceCache } from "@/lib/hook/useGetData";
 
 export const Footer = async (): Promise<JSX.Element> => {
-  const result: ApiResponse<ResponseCompany> = await useGetData({url: 'http://localhost:8000/api/company', revalidate: 7200});
+  const result: ApiResponse<ResponseCompany> = await useGetDataForceCache({url: 'http://localhost:8000/api/company'});
 
-  if (!result.data) {
+  if (!result.data || result.data === undefined) {
     return <div className="text-center">Sepertinya ada kesalahan pada server</div>;
   }
 
@@ -70,19 +70,20 @@ const BodyFooter = (props: { data: ResponseCompany[] }) => {
         <LinksEl
           variant="withIcon"
           text={`${result.email}@gmail.com`}
-          icon={dIcons.email}
           url={`mailto:${result.email}`}
+          icon={dIcons.email}
         />
         <LinksEl
           variant="withIcon"
           text={`+${result.phone}`}
+          url={`tel:${result.phone}`}
           icon={dIcons.phone}
         />
         <LinksEl
           variant="withIcon"
           text={result.address}
           icon={dIcons.location}
-          url={dIcons.location}
+          url={result.address_url}
         />
       </BoxFlex>
     </BoxGrid>

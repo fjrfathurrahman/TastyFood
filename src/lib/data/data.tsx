@@ -6,6 +6,7 @@ import { MdEmail, MdOutlineLocalPhone, MdOutlineLocationOn,} from "react-icons/m
 import { FaUser, FaGithub, FaTwitter, FaSquareFacebook } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
+import { LuImagePlus } from "react-icons/lu";
 
 import imageHero from "../../../assets/hero.png";
 import imagenotdata from "../../../assets/nofounddata.png";
@@ -22,6 +23,7 @@ export const dIcons = {
   home: <AiOutlineHome />,
   contact: <RiContactsLine />,
   gallery: <GrGallery />,
+  addGallery: <LuImagePlus/>,
   food: <IoFastFoodOutline />,
   news: <IoNewspaperOutline />,
   email: <MdEmail />,

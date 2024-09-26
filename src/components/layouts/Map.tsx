@@ -29,7 +29,7 @@ export default function MapComponent(): JSX.Element {
         style: maptilersdk.MapStyle.STREETS,
         center: [107.60981, -6.91959],
         zoom: zoomLevel,
-      });
+      })
 
       // Penanda marker
       new maptilersdk.Marker({ color: "#FF0000" })

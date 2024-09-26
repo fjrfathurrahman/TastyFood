@@ -1,17 +1,24 @@
-"use client"
+"use client";
 
-import { useEffect } from "react";
+import { Table, TableBody, TableColumn, TableHeader } from "@nextui-org/react";
 
 export default function DashboardPage(): JSX.Element {
 
-  useEffect(() => {
-    const login = localStorage.getItem('isLogin');
-    if (!login) {
-      window.location.href = '/admin/auth';
-    }
-  }, []);
-
   return (
-    <div>DashboardPage</div>
+    <div className="bg-white w-full p-6 mx-auto rounded-xl shadow-lg">
+
+      <Table aria-label="Example empty table">
+        <TableHeader>
+          <TableColumn>ID</TableColumn>
+          <TableColumn>TITLE</TableColumn>
+          <TableColumn>DESCRIPTION</TableColumn>
+          <TableColumn>IMAGE</TableColumn>
+          <TableColumn>CATEGORY</TableColumn>
+        </TableHeader>
+        <TableBody emptyContent={"Data tidak ditemukan..."}>{[]}</TableBody>
+      </Table>
+
+    </div>
   );
+
 }

@@ -1,5 +1,5 @@
 import { MainContainer } from "@/components/containers/MainContainer";
-import useGetData from "@/lib/hook/useGetData";
+import { useGetData } from "@/lib/hook/useGetData";
 import { ApiResponse, ResponseGallery } from "@/lib/types/types";
 import dynamic from "next/dynamic";
 
