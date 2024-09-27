@@ -272,6 +272,11 @@ export interface InputProps extends GlobalProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
+export interface PropsTable {
+  column?: { key: string; label: string }[]; 
+  data?: { id: string; [key: string]: string | number }[];
+}
+
 // * API RESPONSE INTERFACE
 export interface ApiResponse<T> {
   status: boolean;

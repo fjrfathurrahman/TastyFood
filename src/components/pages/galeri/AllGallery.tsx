@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 
 const GalleryListComponent = dynamic(
   () =>
-    import("@/components/layouts/GalleryList").then(
+    import("@/components/items/GalleryList").then(
       (module) => module.GalleryList
     ),
   { loading: () => null }

@@ -1,6 +1,6 @@
 import { BoxFlex, ImageEl } from "@/components/common";
 import { useGetDataForceCache } from "@/lib/hook/useGetData";
-import Modal from "@/components/layouts/Modal";
+import Modal from "@/components/items/Modal";
 import { PropsDetail } from "@/lib/types/types";
 
 export default async function DetailPage(props: { params: { id: string } }) {

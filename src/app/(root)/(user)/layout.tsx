@@ -1,6 +1,6 @@
-import { Footer } from "@/components/layouts/Footer";
-import { Header } from "@/components/layouts/Header";
-import { Navigation } from "@/components/layouts/Navbar";
+import { Footer } from "@/components/items/Footer";
+import { Header } from "@/components/items/Header";
+import { Navigation } from "@/components/items/Navbar";
 
 export default function Layout({children}: {children: React.ReactNode}): JSX.Element {
   return (

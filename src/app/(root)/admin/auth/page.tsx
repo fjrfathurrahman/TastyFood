@@ -3,7 +3,7 @@
 import { BoxFlex } from "@/components/common";
 import { MainContainer } from "@/components/containers/MainContainer";
 import { FormAuthentication } from "@/components/forms/FormAuth";
-import { GridImage } from "@/components/layouts/GridImage";
+import { GridImage } from "@/components/items/GridImage";
 import useBreakpoints from "@/lib/hook/useMediaQuery";
 
 

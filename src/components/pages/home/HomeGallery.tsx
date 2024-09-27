@@ -4,7 +4,7 @@ import { useGetData } from "@/lib/hook/useGetData";
 import { ApiResponse, ResponseGallery } from "@/lib/types/types";
 import dynamic from "next/dynamic";
 
-const GalleryListComponent = dynamic(() => import("@/components/layouts/GalleryList").then((module) => module.GalleryList),
+const GalleryListComponent = dynamic(() => import("@/components/items/GalleryList").then((module) => module.GalleryList),
   { loading: () => null }
 );
 
