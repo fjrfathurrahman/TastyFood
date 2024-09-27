@@ -96,7 +96,20 @@ export interface InputProps extends GlobalProps {
 export interface ApiResponse<T> {
   status: boolean;
   message: string;
-  data?: T[] | []
+  data?: T[] | [];
+}
+
+export interface PropsDetail {
+  status: boolean;
+  message: string;
+  data?: {
+    image: string;
+    title: string;
+    description: string;
+    category: string;
+    created_at: string;
+    updated_at: string;
+  };
 }
 
 export interface ResponseGallery {

@@ -24,7 +24,7 @@ export const HomeGallery = async (): Promise<JSX.Element> => {
   return (
     <MainContainer>
       <TittleEl text="Galeri Kami" textAlign="text-center" />
-      <GalleryListComponent data={result.data} />
+      <GalleryListComponent data={result.data} url='http://localhost:3000/galeri' />
       {result.data.length > 0 && (
         <div className="mt-8 flex justify-center">
           <ButtonEl text="LIHAT LEBIH BANYAK" variant="primary" />

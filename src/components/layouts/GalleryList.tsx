@@ -3,10 +3,8 @@ import { BoxFlex, BoxGrid, ImageEl } from "../common";
 import { ResponseGallery } from "@/lib/types/types";
 import { dImages } from "@/lib/data/data";
 
-export const GalleryList = (props: {
-  data: ResponseGallery[];
-}): JSX.Element => {
-  const { data } = props;
+export const GalleryList = (props: { data: ResponseGallery[]; url: string | URL; }): JSX.Element => {
+  const { data, url } = props;
 
   if (!data || data.length === 0) {
     return (
@@ -20,8 +18,12 @@ export const GalleryList = (props: {
   return (
     <BoxGrid className="md:grid-cols-2 lg:grid-cols-3">
       {data.map((item) => (
-        <Link href={`/${item.id}`} key={item.id} className="flex justify-center">
-          <ImageEl src={item.image} />
+        <Link 
+          href={url ? `${url}` : `/galeri/detail/${item.id}`} 
+          key={item.id} 
+          className="flex justify-center"
+        >
+          <ImageEl src={item.image} className="w-full h-44 sm:h-72 md:h-96 hover:scale-90 duration-300 transition-all" />
         </Link>
       ))}
     </BoxGrid>

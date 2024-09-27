@@ -1,7 +1,7 @@
 import { AiOutlineHome } from "react-icons/ai";
 import { RiContactsLine, RiLockPasswordFill, RiInstagramFill } from "react-icons/ri";
 import { GrGallery } from "react-icons/gr";
-import { IoFastFoodOutline, IoNewspaperOutline } from "react-icons/io5";
+import { IoFastFoodOutline, IoNewspaperOutline, IoClose } from "react-icons/io5";
 import { MdEmail, MdOutlineLocalPhone, MdOutlineLocationOn,} from "react-icons/md";
 import { FaUser, FaGithub, FaTwitter, FaSquareFacebook } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
@@ -35,6 +35,7 @@ export const dIcons = {
   facebook: <FaSquareFacebook />,
   instagram: <RiInstagramFill />,
   twitter: <FaTwitter />,
+  close: <IoClose />,
 };
 
 export const dNavigation = {
@@ -68,4 +69,7 @@ export const dImages = {
     { image: imageAbout4 },
     { image: imageAbout5 },
   ],
+  swiper: [
+    
+  ]
 };

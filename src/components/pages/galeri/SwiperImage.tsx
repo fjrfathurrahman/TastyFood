@@ -1,15 +1,13 @@
 "use client";
 
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-// import required modules
-import { Autoplay, Pagination } from "swiper/modules";
 import { SectionLayout } from "@/components/containers/SectionLayout";
 import { MainContainer } from "@/components/containers/MainContainer";
 import { ImageEl } from "@/components/common";
@@ -34,9 +32,9 @@ export const SwiperImage = (): JSX.Element => {
             modules={[Autoplay, Pagination]}
             className="mySwiper"
           >
-            {[1, 2, 3, 4].map((item, index) => (
+            {dImages.about.map((item, index) => (
               <SwiperSlide key={index}>
-                <ImageEl src={dImages.about[0].image} rounded="rounded-3xl" />
+                <ImageEl src={item.image} rounded="rounded-3xl" />
               </SwiperSlide>
             ))}
           </Swiper>
