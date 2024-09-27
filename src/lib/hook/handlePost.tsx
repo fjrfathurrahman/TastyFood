@@ -1,43 +1,46 @@
-interface getFormData {
-  url: string | URL;
-  data: object;
-}
+import { PropsForm } from "../types/types";
 
-async function handlePost({ url, data }: getFormData) {
+
+/**
+ * * Fungsi untuk mengirim data ke server dengan metode POST.
+ * @param {{url: string, data: object}}  - objek yang berisi url dan data yang akan dikirimkan ke server.
+ * @returns {Promise<void>}
+ */
+async function handlePost({ url, formData }: { url: string | URL, formData: FormData }) {
   try {
     const response = await fetch(url, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
+      body: formData,
     });
-
     const result = await response.json();
     console.log(result);
-    localStorage.setItem("isLogin", JSON.stringify(result.data));
-    window.location.href = "/admin/dashboard";
   } catch (error: unknown) {
-    console.error("Login failed:", error);
+    console.error("Upload failed:", error);
+    return {success: false, message: "Username, email atau password tidak valid" };
   }
 }
 
-async function handleLogin({ url, data }: getFormData) {
+/**
+ * * Fungsi untuk mengirimkan data ke server untuk proses login.
+ * @param {{url: string, data: object}}  -  objek yang berisi url dan data yang akan dikirimkan ke server.
+ * Jika proses login berhasil maka akan disimpan di local storage dan akan di redirect ke halaman dashboard admin.
+ * Jika gagal maka akan di tampilkan pesan error di console.
+ * @returns {Promise<void>}
+ */
+async function handleLogin({ url, formData }: PropsForm) {
+  
   try {
     const response = await fetch(url, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
+      body: formData,
     });
 
     const result = await response.json();
-    console.log(result);
     localStorage.setItem("isLogin", JSON.stringify(result.data));
     window.location.href = "/admin/dashboard";
   } catch (error: unknown) {
     console.error("Login failed:", error);
+    return {success: false, message: "Username, email atau password tidak valid" };
   }
 }
 

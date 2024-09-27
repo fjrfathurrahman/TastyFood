@@ -13,7 +13,7 @@ const GalleryListComponent = dynamic(
 
 export const AllGallery = async (): Promise<JSX.Element> => {
   const result: ApiResponse<ResponseGallery> = await useGetData({
-    url: "http://localhost:8000/api/gallery",
+    url: process.env.NEXT_PUBLIC_GALLERY_URL ||''
   });
 
   if (result.data === undefined) {

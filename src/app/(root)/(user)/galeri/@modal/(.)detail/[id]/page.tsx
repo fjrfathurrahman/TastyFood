@@ -1,11 +1,11 @@
 import { BoxFlex, ImageEl } from "@/components/common";
-import { useGetDataNoStore } from "@/lib/hook/useGetData";
+import { useGetDataForceCache } from "@/lib/hook/useGetData";
 import Modal from "@/components/layouts/Modal";
 import { PropsDetail } from "@/lib/types/types";
 
 export default async function DetailPage(props: { params: { id: string } }) {
   const { params } = props;
-  const result: PropsDetail = await useGetDataNoStore({
+  const result: PropsDetail = await useGetDataForceCache({
     url: `http://localhost:8000/api/gallery/${params.id}`,
   });
 
@@ -21,8 +21,12 @@ export default async function DetailPage(props: { params: { id: string } }) {
           align="items-center"
         >
           <div className="w-full text-center lg:w-4/5 lg:text-start">
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold">{data.title}</h1>
-            <span>{data.category} - {data.created_at.substring(0, 10)}</span>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold">
+              {data.title}
+            </h1>
+            <span>
+              {data.category} - {data.created_at.substring(0, 10)}
+            </span>
           </div>
           <ImageEl
             src={data.image}

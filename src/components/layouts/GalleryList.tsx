@@ -3,7 +3,7 @@ import { BoxFlex, BoxGrid, ImageEl } from "../common";
 import { ResponseGallery } from "@/lib/types/types";
 import { dImages } from "@/lib/data/data";
 
-export const GalleryList = (props: { data: ResponseGallery[]; url: string | URL; }): JSX.Element => {
+export const GalleryList = (props: { data: ResponseGallery[]; url?: string | URL; }): JSX.Element => {
   const { data, url } = props;
 
   if (!data || data.length === 0) {
@@ -21,7 +21,7 @@ export const GalleryList = (props: { data: ResponseGallery[]; url: string | URL;
         <Link 
           href={url ? `${url}` : `/galeri/detail/${item.id}`} 
           key={item.id} 
-          className="flex justify-center"
+          className="flex justify-center rounded-3xl"
         >
           <ImageEl src={item.image} className="w-full h-44 sm:h-72 md:h-96 hover:scale-90 duration-300 transition-all" />
         </Link>

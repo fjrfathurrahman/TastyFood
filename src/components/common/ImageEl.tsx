@@ -3,7 +3,7 @@ import Image from "next/image"
 
 const ImageEl = ({className, position = 'relative', width = 'w-full', height = 'h-96', rounded = 'rounded-3xl', ...props }: ImageProps) => {
   return (
-    <div className={`${className} ${position} ${width} ${height}`}>
+    <div className={`${className} ${position} ${width} ${height} ${rounded} shadow-lg`}>
        {props.src && (  
         <Image
           src={props.src}
