@@ -3,7 +3,7 @@
 import { useRef, useEffect } from "react";
 import * as maptilersdk from "@maptiler/sdk";
 import "@maptiler/sdk/dist/maptiler-sdk.css";
-import { MainContainer } from "../containers/MainContainer";
+import { MainContainer } from "../containers";
 
 /**
  * * Komponen untuk menampilkan peta dengan penanda lokasinya menggunakan API MapTiller

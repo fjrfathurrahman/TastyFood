@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { BoxFlex, BoxGrid, ImageEl } from "../common";
 import { ResponseGallery } from "@/lib/types/types";
 import { dImages } from "@/lib/data/data";
+import { BoxFlex, BoxGrid } from "../containers";
+import { ImageEl } from "../common";
 
 export const GalleryList = (props: { data: ResponseGallery[]; url?: string | URL; }): JSX.Element => {
   const { data, url } = props;

@@ -1,5 +1,5 @@
 import { AiOutlineHome } from "react-icons/ai";
-import { RiContactsLine, RiLockPasswordFill, RiInstagramFill } from "react-icons/ri";
+import { RiUser3Line, RiContactsLine, RiLockPasswordFill, RiInstagramFill } from "react-icons/ri";
 import { GrGallery } from "react-icons/gr";
 import { IoFastFoodOutline, IoNewspaperOutline, IoClose } from "react-icons/io5";
 import { MdEmail, MdOutlineLocalPhone, MdOutlineLocationOn,} from "react-icons/md";
@@ -7,6 +7,7 @@ import { FaUser, FaGithub, FaTwitter, FaSquareFacebook } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
 import { LuImagePlus } from "react-icons/lu";
+import { TbNewSection, TbLogout } from "react-icons/tb";
 
 import imageHero from "../../../assets/hero.png";
 import imagenotdata from "../../../assets/nofounddata.png";
@@ -19,12 +20,14 @@ import imageAbout5 from "../../../assets/about5.jpg";
 
 export const dIcons = {
   user: <FaUser />,
+  userLight: <RiUser3Line/>,
   password: <RiLockPasswordFill />,
   home: <AiOutlineHome />,
   contact: <RiContactsLine />,
   gallery: <GrGallery />,
   addGallery: <LuImagePlus/>,
   food: <IoFastFoodOutline />,
+  addNews: <TbNewSection/>,
   news: <IoNewspaperOutline />,
   email: <MdEmail />,
   phone: <MdOutlineLocalPhone />,
@@ -36,6 +39,7 @@ export const dIcons = {
   instagram: <RiInstagramFill />,
   twitter: <FaTwitter />,
   close: <IoClose />,
+  logout: <TbLogout/>
 };
 
 export const dNavigation = {
@@ -56,6 +60,13 @@ export const dNavigation = {
     { name: "Cookie Policy" },
     { name: "Terms & Conditions" },
   ],
+  menuDashboard: [
+    { name: "Dashboard", url: "/admin/dashboard", icon: dIcons.home},
+    { name: "Gallery", url: "/admin/dashboard/gallery", icon: dIcons.addGallery},
+    { name: "News", url: "/admin/dashboard/news", icon: dIcons.addNews},
+    { name: "User", url: "/admin/dashboard/user", icon: dIcons.userLight},
+    { name: "Logout", url: "/", icon: dIcons.logout},
+  ]
 };
 
 export const dImages = {

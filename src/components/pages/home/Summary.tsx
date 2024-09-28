@@ -1,5 +1,5 @@
-import { BoxFlex, TittleEl } from "@/components/common";
-import { MainContainer } from "@/components/containers/MainContainer";
+import { TittleEl } from "@/components/common";
+import { BoxFlex, MainContainer } from "@/components/containers";
 
 export const SummarySection = (): JSX.Element => {
   return (

@@ -8,10 +8,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { SectionLayout } from "@/components/containers/SectionLayout";
-import { MainContainer } from "@/components/containers/MainContainer";
 import { ImageEl } from "@/components/common";
 import { dImages } from "@/lib/data/data";
+import { MainContainer, SectionLayout } from "@/components/containers";
 
 export const SwiperImage = (): JSX.Element => {
   return (

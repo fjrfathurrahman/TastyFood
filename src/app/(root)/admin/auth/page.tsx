@@ -1,11 +1,8 @@
 "use client";
 
-import { BoxFlex } from "@/components/common";
-import { MainContainer } from "@/components/containers/MainContainer";
-import { FormAuthentication } from "@/components/forms/FormAuth";
-import { GridImage } from "@/components/items/GridImage";
+import { BoxFlex, MainContainer } from "@/components/containers";
+import { FormAuthentication, GridImage } from "@/components/import";
 import useBreakpoints from "@/lib/hook/useMediaQuery";
-
 
 export default function AuthPage(): JSX.Element {
   const { isLarge, isXLarge } = useBreakpoints();

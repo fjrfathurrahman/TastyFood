@@ -1,8 +1,7 @@
 "use client";
 
-import { BoxFlex, BoxGrid, ButtonEl } from "@/components/common";
-import { MainContainer } from "@/components/containers/MainContainer";
-import { SectionLayout } from "@/components/containers/SectionLayout";
+import { ButtonEl } from "@/components/common";
+import { BoxFlex, BoxGrid, MainContainer, SectionLayout } from "@/components/containers";
 import { dImages } from "@/lib/data/data";
 import useBreakpoints from "@/lib/hook/useMediaQuery";
 import Image from "next/image";

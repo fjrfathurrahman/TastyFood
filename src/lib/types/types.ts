@@ -130,7 +130,7 @@ export type GapOptions =
   | "gap-44"
   | "gap-72";
 
-export interface SpacingProps {
+interface SpacingProps {
   padding?: PaddingOptions;
   paddingY?: PaddingYOptions;
   paddingX?: PaddingXOptions;
@@ -139,16 +139,16 @@ export interface SpacingProps {
   marginX?: MarginXOptions;
 }
 
-export interface SizingProps {
+interface SizingProps {
   width?: WidthOptions;
   height?: HeightOptions;
 }
-export interface GlobalProps {
+interface GlobalProps {
   children?: React.ReactNode | JSX.Element;
   className?: string;
 }
 
-export interface TypographyProps extends GlobalProps {
+interface TypographyProps extends GlobalProps {
   text: string;
   fontSize?:
     | "text-xs"
@@ -174,8 +174,9 @@ export interface TypographyProps extends GlobalProps {
   textAlign?: "text-start" | "text-left" | "text-center" | "text-right";
 }
 
-export interface LayoutProps extends GlobalProps, SizingProps, SpacingProps {
+interface LayoutProps extends GlobalProps, SizingProps, SpacingProps {
   bg?:
+    | "bg-transparent"
     | "bg-white"
     | "bg-black"
     | "bg-gray-200"
@@ -189,7 +190,7 @@ export interface LayoutProps extends GlobalProps, SizingProps, SpacingProps {
 }
 
 // * DISPLAY LAYOUT
-export interface FlexProps extends GlobalProps, LayoutProps {
+interface FlexProps extends GlobalProps, LayoutProps {
   direction?: "flex-row" | "flex-row-reverse" | "flex-col" | "flex-col-reverse";
   justify?:
     | "justify-start"
@@ -201,7 +202,7 @@ export interface FlexProps extends GlobalProps, LayoutProps {
   gap?: GapOptions;
 }
 
-export interface GridProps extends GlobalProps {
+interface GridProps extends GlobalProps {
   grid?:
     | "grid"
     | "grid-flow-row"
@@ -224,7 +225,7 @@ export interface GridProps extends GlobalProps {
 }
 
 // * COMPONENTS
-export interface ButtonProps extends GlobalProps, LayoutProps {
+interface ButtonProps extends GlobalProps, LayoutProps {
   variant?: "primary" | "bordered";
   type?: "button" | "submit" | "reset" | undefined;
   text?: string;
@@ -232,20 +233,21 @@ export interface ButtonProps extends GlobalProps, LayoutProps {
   onClick?: () => void;
 }
 
-export interface LinkProps extends GlobalProps {
+interface LinkProps extends GlobalProps {
   url?: string | URL | object;
   icon?: React.ReactNode;
   variant?: "withIcon" | "Icon" | "link";
   text?: string;
 }
 
-export interface ImageProps extends GlobalProps, SizingProps, SpacingProps {
+interface ImageProps extends GlobalProps, SizingProps, SpacingProps {
   src: string | StaticImageData;
   position?: "absolute" | "relative";
   rounded?: "rounded-none" | "rounded" | "rounded-2xl" | "rounded-3xl";
+  shadow?: "shadow-none" | "shadow-lg";
 }
 
-export interface InputProps extends GlobalProps {
+interface InputProps extends GlobalProps {
   type?:
     | "text"
     | "email"
@@ -272,19 +274,19 @@ export interface InputProps extends GlobalProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export interface PropsTable {
-  column?: { key: string; label: string }[]; 
+interface PropsTable {
+  column?: { key: string; label: string }[];
   data?: { id: string; [key: string]: string | number }[];
 }
 
-// * API RESPONSE INTERFACE
+// * API INTERFACE
 export interface ApiResponse<T> {
   status: boolean;
   message: string;
   data?: T[] | [];
 }
 
-export interface PropsDetail {
+interface PropsDetail {
   status: boolean;
   message: string;
   data?: {
@@ -297,7 +299,7 @@ export interface PropsDetail {
   };
 }
 
-export interface ResponseGallery {
+interface ResponseGallery {
   id: number;
   title: string;
   image: string;
@@ -307,7 +309,7 @@ export interface ResponseGallery {
   updated_at: string;
 }
 
-export interface ResponseCompany {
+interface ResponseCompany {
   id: number;
   company_name: string;
   description: string;
@@ -325,9 +327,28 @@ export interface ResponseCompany {
   updated_at: string;
 }
 
-export interface PropsForm {
+interface PropsForm {
   url: string | URL;
   data?: object;
   e?: React.FormEvent;
   formData?: FormData;
 }
+
+export type {
+  PropsForm,
+  ButtonProps,
+  FlexProps,
+  GlobalProps,
+  GridProps,
+  HeightOptions,
+  ImageProps,
+  InputProps,
+  LayoutProps,
+  LinkProps,
+  PropsDetail,
+  PropsTable,
+  ResponseCompany,
+  ResponseGallery,
+  TypographyProps,
+  SpacingProps,
+};

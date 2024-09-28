@@ -30,8 +30,7 @@ const TableElement = ({ column, data }: PropsTable) => {
   if (!column || !data) return null;
 
   return (
-    <div className="overflow-x-scroll">
-      <Table aria-label="Example table with static content">
+      <Table aria-label="Example table with static content" color={"primary"} selectionMode="single" defaultSelectedKeys={["2"]} >
         <TableHeader columns={column}>
           {(col) => <TableColumn key={col.key}>{col.label}</TableColumn>}
         </TableHeader>
@@ -39,7 +38,7 @@ const TableElement = ({ column, data }: PropsTable) => {
           {(item) => (
             <TableRow key={item.id}>
               {column.map((col) => (
-                <TableCell key={col.key} style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '200px' }}>
+                <TableCell key={col.key} style={{ whiteSpace: 'nowrap', overflow: 'scroll', textOverflow: 'ellipsis', width: '200px' }}>
                   {getKeyValue(item, col.key)}
                 </TableCell>
               ))}
@@ -47,7 +46,6 @@ const TableElement = ({ column, data }: PropsTable) => {
           )}
         </TableBody>
       </Table>
-    </div>
   );
 };
 

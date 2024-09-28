@@ -1,4 +1,4 @@
-import TableElement from "@/components/items/Table";
+import TableElement from "@/components/ui/Table";
 import HeaderDashboard from "@/components/pages/dashboard/Header";
 import { useGetDataNoStore } from "@/lib/hook/useGetData";
 

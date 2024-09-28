@@ -1,4 +1,4 @@
-export const GridImage = (): JSX.Element => {
+const GridImage = (): JSX.Element => {
   return (
     <div className="w-full hidden lg:grid grid-cols-3 grid-rows-3 gap-2.5 *:rounded-3xl">
       <div className="col-start-1 col-end-2 row-start-1 row-end-3 bg-gray-300"></div>
@@ -10,3 +10,5 @@ export const GridImage = (): JSX.Element => {
     </div>
   );
 };
+
+export default GridImage;

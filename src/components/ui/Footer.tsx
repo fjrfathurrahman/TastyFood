@@ -1,16 +1,13 @@
-import { BoxFlex, BoxGrid, LinksEl } from "../common";
-import { MainContainer } from "../containers/MainContainer";
-import { SectionLayout } from "../containers/SectionLayout";
+import { LinksEl } from "../common";
 import { ApiResponse, ResponseCompany } from "@/lib/types/types";
 import { dIcons, dNavigation } from "@/lib/data/data";
 import { useGetDataForceCache } from "@/lib/hook/useGetData";
+import { BoxFlex, BoxGrid, MainContainer, SectionLayout } from "../containers";
 
 export const Footer = async (): Promise<JSX.Element> => {
-  const result: ApiResponse<ResponseCompany> = await useGetDataForceCache({url: 'http://localhost:8000/api/company'});
+  const result: ApiResponse<ResponseCompany> = await useGetDataForceCache({url: process.env.NEXT_PUBLIC_COMPANY_URL || ''});
 
-  if (!result.data || result.data === undefined) {
-    return <div className="text-center">Sepertinya ada kesalahan pada server</div>;
-  }
+  if (!result.data || result.data === undefined) return <div className="text-center">Sepertinya ada kesalahan pada server</div>;
 
   return (
     <SectionLayout bg="bg-black">

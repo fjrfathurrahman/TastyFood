@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
 
-// Hook untuk mendeteksi media query dengan breakpoints Tailwindcss
+/**
+ * * Hook untuk memperbarui state breakpoints tailwind berdasarkan ukuran layar yang berbeda-beda.
+ * Hook ini akan memperbarui state breakpoints saat komponen berubah atau di-resize.
+ *
+ * @returns Objek yang berisi state breakpoints
+ */
 function useBreakpoints() {
   const [breakpoints, setBreakpoints] = useState({
     isLessThanSmall: false,
@@ -10,9 +15,11 @@ function useBreakpoints() {
     isXLarge: false,
   });
 
+  // Gunakan hook useEffect untuk memperbarui breakpoints saat berubah
   useEffect(() => {
-    // function untuk memperbarui state breakpoints
+    // Definisikan fungsi untuk memperbarui breakpoints berdasarkan ukuran window saat ini
     const updateBreakpoints = () => {
+      // Gunakan window.matchMedia untuk memeriksa apakah ukuran window saat ini cocok dengan setiap breakpoint
       setBreakpoints({
         isLessThanSmall: window.matchMedia('(max-width: 639px)').matches,
         isSmall: window.matchMedia('(min-width: 640px) and (max-width: 767px)').matches,
@@ -22,17 +29,17 @@ function useBreakpoints() {
       });
     };
 
-    // Menjalankan fungsi update saat komponen pertama kali dirender
+    // Panggil fungsi updateBreakpoints secara awal
     updateBreakpoints();
 
-    // Menambahkan event listener untuk perubahan ukuran jendela
+    // Tambahkan event listener untuk memperbarui breakpoints saat window berubah
     window.addEventListener('resize', updateBreakpoints);
 
-    // Membersihkan event listener saat komponen di-unmount
+    // Kembalikan fungsi cleanup menghapus function updateBreakpoints
     return () => window.removeEventListener('resize', updateBreakpoints);
   }, []);
 
-  return breakpoints; 
+  // Kembalikan objek state breakpoints
+  return breakpoints;
 }
-
 export default useBreakpoints;

@@ -1,10 +1,9 @@
 "use client";
 
 import header from "../../../assets/header.png";
-import { SectionLayout } from "../containers/SectionLayout";
 import { ImageEl } from "../common";
-import { MainContainer } from "../containers/MainContainer";
 import { usePathname } from "next/navigation";
+import { MainContainer, SectionLayout } from "../containers";
 
 export const Header = (): JSX.Element => {
   const pathName = usePathname();

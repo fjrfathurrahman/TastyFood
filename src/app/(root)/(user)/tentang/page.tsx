@@ -1,6 +1,5 @@
-import { BoxFlex, BoxGrid, TittleEl, ImageEl } from "@/components/common";
-import { MainContainer } from "@/components/containers/MainContainer";
-import { SectionLayout } from "@/components/containers/SectionLayout";
+import { TittleEl, ImageEl } from "@/components/common";
+import { BoxFlex, BoxGrid, MainContainer, SectionLayout } from "@/components/containers";
 import { dImages } from "@/lib/data/data";
 
 export default function TentangPage(): JSX.Element {

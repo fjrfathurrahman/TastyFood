@@ -1,9 +1,9 @@
 import { ImageProps } from "@/lib/types/types"
 import Image from "next/image"
 
-const ImageEl = ({className, position = 'relative', width = 'w-full', height = 'h-96', rounded = 'rounded-3xl', ...props }: ImageProps) => {
+const ImageEl = ({className, position = 'relative', width = 'w-full', height = 'h-96', rounded = 'rounded-3xl', shadow = 'shadow-lg', ...props }: ImageProps) => {
   return (
-    <div className={`${className} ${position} ${width} ${height} ${rounded} shadow-lg`}>
+    <div className={`${className} ${position} ${width} ${height} ${rounded} ${shadow}`}>
        {props.src && (  
         <Image
           src={props.src}

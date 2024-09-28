@@ -1,10 +1,10 @@
 import { ButtonEl, TittleEl } from "@/components/common";
-import { MainContainer } from "@/components/containers/MainContainer";
+import { MainContainer } from "@/components/containers";
 import { useGetData } from "@/lib/hook/useGetData";
 import { ApiResponse, ResponseGallery } from "@/lib/types/types";
 import dynamic from "next/dynamic";
 
-const GalleryListComponent = dynamic(() => import("@/components/items/GalleryList").then((module) => module.GalleryList),
+const GalleryListComponent = dynamic(() => import("@/components/ui/GalleryList").then((module) => module.GalleryList),
   { loading: () => null }
 );
 
@@ -13,9 +13,8 @@ export const HomeGallery = async (): Promise<JSX.Element> => {
     url: process.env.NEXT_PUBLIC_GALLERY_URL || "",
   });
 
-  if (result.data === undefined) {
-    return <div className="text-center">Sepertinya ada kesalahan pada server</div>;
-  }
+  if (result.data === undefined) return <div className="text-center">Sepertinya ada kesalahan pada server</div>;
+  
 
   return (
     <MainContainer>

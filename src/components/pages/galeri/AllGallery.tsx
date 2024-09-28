@@ -1,11 +1,11 @@
-import { MainContainer } from "@/components/containers/MainContainer";
+import { MainContainer } from "@/components/containers";
 import { useGetData } from "@/lib/hook/useGetData";
 import { ApiResponse, ResponseGallery } from "@/lib/types/types";
 import dynamic from "next/dynamic";
 
 const GalleryListComponent = dynamic(
   () =>
-    import("@/components/items/GalleryList").then(
+    import("@/components/ui/GalleryList").then(
       (module) => module.GalleryList
     ),
   { loading: () => null }

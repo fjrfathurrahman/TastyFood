@@ -1,9 +1,10 @@
-import { handleLogin } from "@/lib/hook/handlePost";
-import { BoxFlex, ButtonEl, InputEl } from "../common";
+import { ButtonEl, InputEl } from "../common";
 import { dIcons } from "@/lib/data/data";
 import { useState } from "react";
+import { BoxFlex } from "../containers";
+import { usePost } from "@/lib";
 
-export const FormAuthentication = (): JSX.Element => {
+const FormAuthentication = (): JSX.Element => {
   const [value, setValue] = useState({ username: "", email: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -26,9 +27,9 @@ export const FormAuthentication = (): JSX.Element => {
     formData.append("password", value.password);
 
     setLoading(true);
-    const result = await handleLogin({ url: url.toString(), formData });
+    const result = await usePost.handleLogin({ url: url.toString(), formData });
     if (result && !result.success) setError(result.message); setLoading(false);
-    
+
     setLoading(false);
   };
 
@@ -118,3 +119,5 @@ const FooterForm = (): JSX.Element => {
     </BoxFlex>
   );
 };
+
+export default FormAuthentication;
