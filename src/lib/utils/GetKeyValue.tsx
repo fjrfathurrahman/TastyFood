@@ -1,7 +1,8 @@
-import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Image } from "@nextui-org/react";
+import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/react";
 import { IoEllipsisVerticalSharp } from "react-icons/io5";
-import { RowTableProps } from "@/app/(ROOT)/(admin)/dashboard/(TABLES)/tableGaleri/page";
 import Link from "next/link";
+import { RowTableProps } from "../types/elements";
+import Image from "next/image";
 
 export function getKeyValue( item: RowTableProps, columnKey: string, index: number, handleDelete: (id: number) => void ) {
 
@@ -33,7 +34,11 @@ export function getKeyValue( item: RowTableProps, columnKey: string, index: numb
       );
 
     case "image":
-      return item.image && <Image src={item.image} alt="image" className="rounded-xl bg-cover object-cover"/>
+      return item.image && (
+        <div className="relative w-full h-12 md:h-72 shadow-lg rounded-xl">
+          <Image src={item.image} alt="image" className="w-auto h-auto rounded-xl object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"  fill />
+        </div>
+      )
 
     default:
       return item[columnKey] ?? "-";

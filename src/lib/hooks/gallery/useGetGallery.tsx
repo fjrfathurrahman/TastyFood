@@ -8,6 +8,7 @@ export default function useGetGallery (id?: string) {
       const endpoint = id ? `/gallery/${id}` : "/gallery";
       const galleryResponse = await axiosInstance.get(endpoint);
       await new Promise((resolve) => setTimeout(resolve, 1000));
+      
       return galleryResponse;
     },
   });
@@ -15,7 +16,7 @@ export default function useGetGallery (id?: string) {
   return {
     refetch,
     result: data,
-    data: id ? data?.data || null : data?.data?.data || [], 
+    data: id ? data?.data?.data || null : data?.data?.data || [], 
     isLoading,
     isError,
   }

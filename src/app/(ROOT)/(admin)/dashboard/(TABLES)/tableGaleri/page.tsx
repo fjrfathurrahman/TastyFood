@@ -9,6 +9,7 @@ import { useMutation } from "react-query";
 import { List } from "@/components/layout";
 import { IoMdAdd } from "react-icons/io";
 import { RowTableProps } from "@/lib/types/elements";
+import { toast } from "sonner";
 
 const columns = [
   { key: "number", label: "No." },
@@ -63,11 +64,12 @@ function RenderData(props: { data: RowTableProps[] }) {
       return galleryResponse;
     },
     onSuccess: () => {
-      alert("Galeri Berhasil Dihapus");
+      toast.success("Galeri Berhasil dihapus");      
       refetch();
     },
     onError: (error) => {
-      alert(error);
+      console.log(error);
+      toast.error("Terjadi kesalahan, silahkan coba lagi");
     }
   });
 
