@@ -5,9 +5,10 @@ import { Form, RenderInput } from "@/components/fragments/Form";
 import { Layout } from "@/components/layout";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { AuthenticationSchema, SchemaAuth } from "@/lib/schema";
+import { AuthenticationSchema, SchemaAuth } from "@/resource/schema";
 import { ResponseData } from "@/lib/types/response";
-import Inputs from "@/resource";
+import { Inputs } from "@/resource";
+import { toast } from "sonner";
 
 export default function Authentication() {
   const { register, handleSubmit, formState: { isSubmitting , errors }, reset} = useForm<SchemaAuth>({
@@ -26,11 +27,11 @@ export default function Authentication() {
 
   const { mutate, error: Error } = usePostAdmin({
     onSuccess: () => {
-      alert('Login Berhasil')
       reset()
     },
     onError: (error) => {
-      alert(error)
+      console.log(error)
+      toast.error('Terjadi Kesalahan, Silahkan Coba Lagi')
     }
   })
 

@@ -1,16 +1,18 @@
 'use client'
 
 import usePutGallery from "@/lib/hooks/gallery/usePutGallery";
-import Inputs from "@/resource";
+import { Inputs } from "@/resource";
 import { Form, RenderInput } from "@/components/fragments/Form";
-import { GallerySchema, SchemaGallery } from "@/lib/schema";
+import { GallerySchema, SchemaGallery } from "@/resource/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { ResponseData } from "@/lib/types/response";
 import Link from "next/link";
+import { toast } from "sonner";
+import { LuCheckCircle } from "react-icons/lu";
 
 export default function EditGaleri({ params }: { params: { id: string } }) {
-  const { handleSubmit, register, formState: { errors } } = useForm<SchemaGallery>({
+  const { handleSubmit, register, formState: { errors, isSubmitting }, reset } = useForm<SchemaGallery>({
     mode: 'onChange',
     resolver: zodResolver(GallerySchema),
   })
@@ -31,11 +33,16 @@ export default function EditGaleri({ params }: { params: { id: string } }) {
 
   const { mutate, isLoading, error: Error, isSuccess } = usePutGallery({
     onSuccess: () => {
-      alert('Data Galeri Berhasil Diperbarui')
+      toast.success(
+        <Link href="/dashboard/tableGaleri" className="flex items-center gap-2.5 text-sm">
+          <LuCheckCircle size={18}/>Berhasil diubah! Klik untuk melihat.
+        </Link>
+      )
+      reset();
     },
     onError: (error) => {
+      toast.error('Terjadi Kesalahan, Silahkan Coba Lagi')
       console.log(error);
-      alert(error)
     }
   })
   
@@ -44,7 +51,7 @@ export default function EditGaleri({ params }: { params: { id: string } }) {
       <Form onSubmit={handleSubmit(onSubmit)}>
 
         <Form.Header
-          headline={`Edit Gallery ${params.id}`}
+          headline={`Edit Galeri ID: ${params.id}`}
           description="Perbarui galeri dengan mengisi formulir berikut ini."
         />
 
@@ -63,10 +70,9 @@ export default function EditGaleri({ params }: { params: { id: string } }) {
           ))}
         </Form.Body>
 
-        <Form.Footer isSubmitting={isLoading}>
+        <Form.Footer isSubmitting={isLoading || isSubmitting}>
           <Link href={`${isSuccess ? '/dashboard/tableGaleri' : ''}`} as="small" className={`${Error ? 'text-error' : 'text-success'} text-sm`}>
             {(Error?.response?.data as ResponseData)?.message ? 'Terjadi Kesalahan, Silahkan Coba Lagi' : ''}
-            {isSuccess ? 'Data Berhasil Diperbarui, Lihat Data...' : ''}
           </Link>
         </Form.Footer>
       </Form>

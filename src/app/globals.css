@@ -36,3 +36,22 @@
   }
 
 }
+
+/* CSS untuk animasi vertikal */
+@keyframes verticalMove {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-24px) rotate(-8deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+
+.image-item {
+  display: inline-block;
+  animation: verticalMove 2s ease-in-out infinite;
+}

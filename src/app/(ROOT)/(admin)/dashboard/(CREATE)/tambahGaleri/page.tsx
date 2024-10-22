@@ -1,16 +1,18 @@
 'use client';
 
 import usePostGallery from "@/lib/hooks/gallery/usePostGallery";
+import Link from "next/link";
 import { Form, RenderInput } from "@/components/fragments/Form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { GallerySchema, SchemaGallery } from "@/lib/schema";
-import Inputs from "@/resource";
+import { GallerySchema, SchemaGallery } from "@/resource/schema";
+import { Inputs } from "@/resource";
 import { ResponseData } from "@/lib/types/response";
-import Link from "next/link";
+import { toast } from "sonner";
+import { LuCheckCircle } from "react-icons/lu";
 
 export default function TambahGaleri() {
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<SchemaGallery>({
+  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<SchemaGallery>({
     resolver: zodResolver(GallerySchema),
     mode: 'onChange',
   });
@@ -30,11 +32,16 @@ export default function TambahGaleri() {
 
   const { mutate, error: Error, isLoading, isSuccess } = usePostGallery({
     onSuccess: () => {
-      alert('Data Galeri Berhasil Dibuat')
+      toast.success(
+        <Link href="/dashboard/tableGaleri" className="flex items-center gap-2.5 text-sm">
+          <LuCheckCircle size={18}/>Berhasil ditambahkan! Klik untuk melihat.
+        </Link>
+      )
       reset()
     },
     onError: (error) => {
-      alert(error)
+      toast.error('Terjadi Kesalahan, Silahkan Coba Lagi')
+      console.log(error)
     }
   })
 
@@ -57,13 +64,13 @@ export default function TambahGaleri() {
           ))}
         </Form.Body>
 
-        <Form.Footer isSubmitting={isLoading}>
+        <Form.Footer isSubmitting={isLoading || isSubmitting}>
           <Link href={`${isSuccess ? '/dashboard/tableGaleri' : ''}`} className={`${isSuccess ? 'text-green-500' : 'text-red-500'} text-sm`}>
             {(Error?.response?.data as ResponseData)?.message ? 'Terjadi Kesalahan, Silahkan Coba Lagi' : ''}
-            {isSuccess ? 'Data Berhasil Diperbarui, Lihat Data...' : ''}
           </Link>
         </Form.Footer>
       </Form>
+
     </>
   );
 }

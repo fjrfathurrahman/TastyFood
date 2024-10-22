@@ -16,7 +16,7 @@ export const Form = ({ onSubmit, ...props }: FormPropss) => {
 const Header = (props: { headline: string, description: string }) => {
   return (
     <div>
-      <h3 className="font-bold text-primary">{props.headline}</h3>
+      <h3 className="font-bold">{props.headline}</h3>
       <small>{props.description}</small>
    </div>
   )
