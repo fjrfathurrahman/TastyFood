@@ -21,3 +21,14 @@ export interface GalleryItem {
   created_at: string;
   updated_at: string;
 }
+
+export interface NewsItem {
+  id: number;
+  title: string;
+  excerpt: string;
+  content: string;
+  image: null | string | File;
+  category: string;
+  created_at: string;
+  updated_at: string;
+}

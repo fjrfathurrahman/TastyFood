@@ -5,7 +5,7 @@ export type gap = 'gap-2' | 'gap-4' | 'gap-6' | 'gap-8' | 'gap-12' | 'gap-16'
 
 export type TailwindSizing = Responsive<
  | 'w-max' | 'w-full' | 'w-screen' | 'w-auto' | 'w-8' | 'w-16' | 'w-32' | 'w-64' | 'w-1/2' | 'w-1/3' | 'w-1/4' | 'w-3/4' | 'w-4/5'
- | 'w-max' | 'h-full' | 'h-screen' | 'h-auto' | 'h-8' | 'h-16' | 'h-32' | 'h-64' | 'h-1/2' | 'h-1/3' | 'h-1/4' | 'h-3/4' | 'h-4/5' | 'h-[700px]'
+ | 'w-max' | 'h-full' | 'h-max' | 'h-screen' | 'h-auto' | 'h-8' | 'h-16' | 'h-32' | 'h-64' | 'h-1/2' | 'h-1/3' | 'h-1/4' | 'h-3/4' | 'h-4/5' | 'h-[700px]'
 >;
 
 export type TailwindSpacing = Responsive<

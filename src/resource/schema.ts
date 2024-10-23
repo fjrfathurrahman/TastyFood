@@ -21,4 +21,15 @@ const AuthenticationSchema = z.object({
 
 type SchemaAuth = z.infer<typeof AuthenticationSchema>;
 
-export { GallerySchema, type SchemaGallery, AuthenticationSchema, type SchemaAuth }
+const NewsSchema = z.object({
+  title: z.string().min(3, 'Judul harus minimal 3 karakter').max(20, 'Judul harus maksimal 20 karakter'),
+  content: z.string().min(3, 'Deskripsi harus minimal 3 karakter'),
+  excerpt: z.string().min(3, 'Ringkasan harus minimal 3 karakter').max(200, 'Ringkasan harus maksimal 200 karakter'),
+  image: z.custom<FileList>().optional().refine((files) => !files || files.length === 0 || ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
+  'Hanya format .jpg, .jpeg, .png, .gif dan .svg yang didukung',
+  )
+})
+
+type SchemaNews = z.infer<typeof NewsSchema>;
+
+export { GallerySchema, type SchemaGallery, AuthenticationSchema, type SchemaAuth, NewsSchema, type SchemaNews }

@@ -9,8 +9,28 @@ import { RiGalleryLine } from "react-icons/ri";
 import { LuMoonStar, LuMenu } from "react-icons/lu";
 import { MdNotificationsNone } from "react-icons/md";
 import { LuLayoutDashboard } from "react-icons/lu";
+import {
+  MdOutlineFormatAlignCenter,
+  MdOutlineFormatAlignJustify,
+  MdOutlineFormatAlignLeft,
+  MdOutlineFormatAlignRight,
+  MdOutlineFormatBold,
+  MdOutlineFormatItalic,
+  MdOutlineFormatUnderlined,
+} from "react-icons/md";
+import { LuHeading1, LuHeading2, LuHeading3 } from "react-icons/lu";
 
 export const Icons = {
+  MdOutlineFormatAlignCenter,
+  MdOutlineFormatAlignJustify,
+  MdOutlineFormatAlignLeft,
+  MdOutlineFormatAlignRight,
+  MdOutlineFormatBold,
+  MdOutlineFormatItalic,
+  MdOutlineFormatUnderlined,
+  LuHeading1,
+  LuHeading2,
+  LuHeading3,
   LuMoonStar,
   LuMenu,
   MdNotificationsNone,
@@ -22,5 +42,5 @@ export const Icons = {
   MdOutlineSettings,
   MdLogout,
   RiGalleryLine,
-  LuLayoutDashboard
-}
+  LuLayoutDashboard,
+};

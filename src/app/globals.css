@@ -8,27 +8,27 @@
   }
 
   h1 {
-    @apply font-bold text-5xl lg:text-6xl
+    @apply font-bold text-5xl sm:text-6xl
   }
 
   h2 {
-    @apply font-bold text-4xl lg:text-5xl
+    @apply font-bold text-4xl sm:text-5xl
   }
 
   h3 {
-    @apply font-semibold text-3xl lg:text-4xl
+    @apply font-semibold text-3xl sm:text-4xl
   }
 
   h4 {
-    @apply font-medium text-2xl lg:text-3xl
+    @apply font-medium text-2xl sm:text-3xl
   }
 
   h5 {
-    @apply font-medium text-xl lg:text-2xl
+    @apply font-medium text-xl sm:text-2xl
   }
 
   h6 {
-    @apply font-medium text-lg lg:text-xl
+    @apply font-medium text-lg sm:text-xl
   }
 
   p {
@@ -37,21 +37,17 @@
 
 }
 
-/* CSS untuk animasi vertikal */
-@keyframes verticalMove {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-24px) rotate(-8deg);
-  }
-  100% {
-    transform: translateY(0) rotate(0deg);
-  }
+::-webkit-scrollbar {
+  display: none;
 }
 
-
-.image-item {
-  display: inline-block;
-  animation: verticalMove 2s ease-in-out infinite;
+/* Typography TIPTAP */
+.tiptap h1 {
+  @apply text-2xl font-semibold sm:text-3xl lg:text-4xl;
+}
+.tiptap h2 {
+  @apply text-xl font-semibold sm:text-2xl lg:text-3xl;
+}
+.tiptap h3 {
+  @apply text-lg font-semibold sm:text-xl lg:text-2xl;
 }

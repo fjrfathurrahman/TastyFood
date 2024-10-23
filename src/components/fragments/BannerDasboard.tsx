@@ -19,18 +19,19 @@ export const BannerDasboard = () => {
         <span className="text-xl sm:text-3xl lg:text-4xl font-bold">
           Hi, Admin 👋
         </span>
-        <small>Siapkh Anda untuk mengatur Dashboard Anda?</small>
+        <small>Siapkah Anda untuk mengatur Dashboard Anda?</small>
       </div>
 
-      {AnimationImages(isLessThanSmall)}
+      {isLessThanSmall ? null : (
+        AnimationImages()
+      )}
     </Box>
   );
 };
 
-const AnimationImages = (isLessThanSmall: boolean) => {
+const AnimationImages = () => {
   return (
     <>
-      {isLessThanSmall ? null : (
         <div className=" absolute top-0 left-0 right-0 md:right-14 z-50">
           <motion.div
             className="absolute top-8 right-12 z-40"
@@ -67,7 +68,6 @@ const AnimationImages = (isLessThanSmall: boolean) => {
             />
           </motion.div>
         </div>
-      )}
     </>
   );
 };

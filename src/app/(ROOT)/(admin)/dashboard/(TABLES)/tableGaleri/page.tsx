@@ -23,7 +23,7 @@ export default function TableGaleri() {
   const { data, isLoading, isError } = useGetGallery();
 
   return (
-    <div>
+    <>
 
       <List>
         <h2>Table Galeri</h2>
@@ -51,7 +51,7 @@ export default function TableGaleri() {
           {RenderData({data})}
         </TableBody>
       </Table>
-    </div>
+    </>
   );
 }
 
@@ -77,7 +77,7 @@ function RenderData(props: { data: RowTableProps[] }) {
     <TableRow key={item.id}>
       {(columnKey) => (
         <TableCell style={{ textOverflow: "ellipsis", textWrap: "nowrap", width: columnKey === "image" ? "300px" : "auto" }}>
-          {getKeyValue(item, columnKey as string, index, deleteGallery) as React.ReactNode}
+          {getKeyValue(item, columnKey as string, index, "Galeri", deleteGallery) as React.ReactNode}
         </TableCell>
       )}
     </TableRow>

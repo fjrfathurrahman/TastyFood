@@ -1,17 +1,18 @@
 'use client';
 
 import { Box } from "@/components/layout";
-import { Loader } from "@/components/loader";
-import useGetGallery from "@/lib/hooks/gallery/useGetGallery";
-import { GalleryItem } from "@/lib/types/response";
+import { NewsItem } from "@/lib/types/response";
+import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Skeleton } from "@nextui-org/react";
+import { IoEllipsisVerticalSharp } from "react-icons/io5";
 import FormatDate from "@/lib/utils/FormatDate";
-import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Skeleton,} from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
-import { IoEllipsisVerticalSharp } from "react-icons/io5";
+import useGetNews from "@/lib/hooks/berita/useGetNews";
+import Dompurify from "dompurify";
+import { Loader } from "@/components/loader";
 
-export default function DetailGaleri({ params }: { params: { id: string } }) {
-  const { data, isLoading } = useGetGallery(params.id);
+export default function DetailBerita({ params }: { params: { id: string } }) {
+  const { data, isLoading } = useGetNews(params.id);
 
   return (
     <Box flexbox={["flex", "flex-col", "gap-4"]}>
@@ -23,8 +24,7 @@ export default function DetailGaleri({ params }: { params: { id: string } }) {
   );
 }
 
-
-function RenderGallery({ data }: { data: GalleryItem }) {
+function RenderGallery({ data }: { data: NewsItem }) {
   return (
     <>
       <div className="relative w-full min-h-72 shadow-lg rounded-xl">
@@ -42,13 +42,22 @@ function RenderGallery({ data }: { data: GalleryItem }) {
       </div>
 
       <div>
-        <p className="font-bold">Deskripsi:</p>
-        <p>{data?.description}</p>
+        <p className="text-lg">Ringkasan:</p>
+        <p>{data?.excerpt}</p>
+      </div>
+
+      <div>
+        <p>Content:</p>
+        <div
+          className="prose px-4 py-6 border rounded-xl mt-4"
+          dangerouslySetInnerHTML={{
+            __html: Dompurify.sanitize(data?.content as string),
+          }}
+        />
       </div>
     </>
   );
 }
-
 
 function RenderDropdown(id: number) {
   return (
@@ -61,7 +70,7 @@ function RenderDropdown(id: number) {
 
       <DropdownMenu aria-label="Static Actions">
         <DropdownItem textValue="edit" key="edit" color="primary">
-          <Link href={`/dashboard/editGaleri/${id}`} color="primary">
+          <Link href={`/dashboard/editBerita/${id}`} color="primary">
             Edit Item {id}
           </Link>
         </DropdownItem>

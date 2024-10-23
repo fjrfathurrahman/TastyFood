@@ -5,7 +5,7 @@ import { Header } from "@/components/fragments/Header";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <section className="lg:w-[768px] mx-auto px-6 lg:px-0 pb-24">
+    <section className="md:w-[768px] mx-auto px-6 lg:px-0 pb-16">
      
       <ProgressBar
         height="5px"

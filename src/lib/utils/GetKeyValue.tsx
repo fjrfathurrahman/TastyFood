@@ -4,7 +4,7 @@ import Link from "next/link";
 import { RowTableProps } from "../types/elements";
 import Image from "next/image";
 
-export function getKeyValue( item: RowTableProps, columnKey: string, index: number, handleDelete: (id: number) => void ) {
+export function getKeyValue( item: RowTableProps, columnKey: string, index: number, table: 'Berita' | 'Galeri', handleDelete: (id: number) => void ) {
 
   switch (columnKey) {
     case "number":
@@ -21,10 +21,10 @@ export function getKeyValue( item: RowTableProps, columnKey: string, index: numb
           
           <DropdownMenu aria-label="Static Actions">
             <DropdownItem textValue="detail" key="detail" color="primary" className="text-primary">
-              <Link href={`/dashboard/detailGaleri/${item.id}`}>Detail Item {item.id}</Link>
+              <Link href={`/dashboard/detail${table}/${item.id}`}>Detail Item {item.id}</Link>
             </DropdownItem>
             <DropdownItem textValue="edit" key="edit">
-              <Link href={`/dashboard/editGaleri/${item.id}`}>Edit Item {item.id}</Link>
+              <Link href={`/dashboard/edit${table}/${item.id}`}>Edit Item {item.id}</Link>
             </DropdownItem>
             <DropdownItem textValue="delete" key="delete" className="text-danger" color="danger" onClick={() => handleDelete(item.id)}>
               Delete Item {item.id}

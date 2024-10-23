@@ -16,3 +16,17 @@ export interface RowTableProps {
   website?: string;
   [key: string]: unknown;
 }
+
+export interface TextEditorProps {
+  value: string;
+  onChange: (value: string) => void;
+  label: string;
+  error?: string;
+}
+
+export interface ToolbarOption {
+  icon: JSX.Element;
+  action: () => boolean;
+  isActive: () => boolean;
+  name: string;
+}

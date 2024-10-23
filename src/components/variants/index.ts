@@ -10,7 +10,7 @@ export const ButtonVariants = cva(
         icon: 'bg-black text-white rounded-full',
       },
       size: {
-        default: 'px-6 py-2.5 text-sm',
+        default: 'px-6 py-2.5 sm:px-8 sm:py-3 text-sm sm:text-base',
         sm: 'px-8 py-3 text-base',
         md: 'px-12 py-3.5 text-xl',
         rounded: 'rounded-full text-xl sm:text-2xl lg:text-3xl w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16',

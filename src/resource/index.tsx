@@ -103,10 +103,38 @@ const Authentication = [
   }
 ]
 
+const News = [
+  {
+    name: 'title',
+    type: 'text',
+    label: 'Judul',
+    placeholder: 'Masukan Judul Berita',
+  },
+  {
+    name: 'excerpt',
+    type: 'text',
+    label: 'Excerpt',
+    placeholder: 'Masukan Excerpt Berita',
+  },
+  {
+    name: 'image',
+    type: 'file',
+    label: 'Image',
+    placeholder: 'Masukan Image Berita',
+  },
+  {
+    name: 'content',
+    type: 'text',
+    label: 'Content',
+    placeholder: 'Masukan Content Berita',
+  },
+]
+
 
 const Inputs = {
   Gallery,
-  Authentication
+  Authentication,
+  News
 }
 
 const Menus = {
