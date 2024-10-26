@@ -1,13 +1,16 @@
-export default function FormatDate(d?: string) {
-  const date = d ? new Date(d) : new Date();
+export default function formatDate(dateString?: string) {
+  const options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  };
 
-  const dayName = days[date.getDay()];
-  const day = date.getDate();
-  const month = months[date.getMonth()];
-  const year = date.getFullYear();
-
-  return `${dayName}, ${day} ${month} ${year}`;
+  if (dateString) {
+    return new Date(dateString).toLocaleDateString('id-ID', options);
+  } 
+  
+  return new Date().toLocaleDateString('id-ID', options);
+  
 }
-
-const days = [ "Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu",];
-const months = [ "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember",];

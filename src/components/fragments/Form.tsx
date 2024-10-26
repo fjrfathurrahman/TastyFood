@@ -60,12 +60,8 @@ Form.Header = Header;
 Form.Body = Body;
 Form.Footer = Footer;
 
-export function RenderInput({ name, label, placeholder }: RenderInputProps) {
-  const {
-    register,
-    control,
-    formState: { errors },
-  } = useFormContext();
+export function RenderInput({ name, label, placeholder, type = "text" }: RenderInputProps) {
+  const { register, control, formState: { errors } } = useFormContext();
 
   const getErrorMessage = () => {
     return errors[name]?.message as string;
@@ -76,13 +72,16 @@ export function RenderInput({ name, label, placeholder }: RenderInputProps) {
     placeholder: placeholder || label,
     isInvalid: Boolean(errors[name]),
     errorMessage: getErrorMessage(),
+    labelPlacement: "outside" as const,
   };
 
   const renderField = () => {
     switch (name) {
       case "description":
       case "excerpt":
-        return <Textarea labelPlacement="outside" {...baseProps} {...register(name)} />;
+      case "address":
+      case "address_url":
+        return <Textarea {...baseProps} {...register(name)} />;
 
       case "content":
         return (
@@ -100,10 +99,10 @@ export function RenderInput({ name, label, placeholder }: RenderInputProps) {
           />
         );
       case "image":
-        return <Input labelPlacement="outside" {...baseProps} type="file" {...register(name)} />;
+        return <Input {...baseProps} type="file" {...register(name)} />;
 
       default:
-        return <Input labelPlacement="outside" {...baseProps} type="text" {...register(name)} />;
+        return <Input {...baseProps} type={type} {...register(name)} />;
     }
   };
 

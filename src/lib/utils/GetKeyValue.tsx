@@ -4,7 +4,7 @@ import Link from "next/link";
 import { RowTableProps } from "../types/elements";
 import Image from "next/image";
 
-export function getKeyValue( item: RowTableProps, columnKey: string, index: number, table: 'Berita' | 'Galeri', handleDelete: (id: number) => void ) {
+export function getKeyValue( item: RowTableProps, columnKey: string, index: number, table: 'Berita' | 'Galeri', handleDelete: (id: number) => void ): React.ReactNode {
 
   switch (columnKey) {
     case "number":
@@ -41,6 +41,6 @@ export function getKeyValue( item: RowTableProps, columnKey: string, index: numb
       )
 
     default:
-      return item[columnKey] ?? "-";
+      return item[columnKey]  as React.ReactNode ?? "-";
   }
 }

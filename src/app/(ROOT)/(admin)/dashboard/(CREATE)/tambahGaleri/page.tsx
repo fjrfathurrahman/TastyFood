@@ -1,14 +1,12 @@
 "use client";
 
 import usePostGallery from "@/lib/hooks/gallery/usePostGallery";
-import Link from "next/link";
 import { Form, RenderInput } from "@/components/fragments/Form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm } from "react-hook-form";
 import { GallerySchema, SchemaGallery } from "@/resource/schema";
 import { Inputs } from "@/resource";
-import { toast } from "sonner";
-import { LuCheckCircle } from "react-icons/lu";
+import { Toast } from "@/components/common";
 
 export default function TambahGaleri() {
   const methods = useForm<SchemaGallery>({
@@ -27,26 +25,13 @@ export default function TambahGaleri() {
       formData.append("image", data.image[0]);
     }
 
-    await new Promise((resolve) => setTimeout(resolve, 2000));
     mutate(formData);
   };
 
   const { mutate, isLoading } = usePostGallery({
     onSuccess: () => {
-      toast.success(
-        <Link
-          href="/dashboard/tableGaleri"
-          className="flex items-center gap-2.5 text-sm"
-        >
-          <LuCheckCircle size={18} />
-          Berhasil ditambahkan! Klik untuk melihat.
-        </Link>
-      );
+      Toast.Success('Berhasil menambahkan galeri', '/dashboard/tableGaleri')
       reset();
-    },
-    onError: (error) => {
-      toast.error("Terjadi Kesalahan, Silahkan Coba Lagi");
-      console.log(error);
     },
   });
 

@@ -7,7 +7,7 @@ export default function useGetGallery (id?: string) {
     queryFn: async () => {
       const endpoint = id ? `/gallery/${id}` : "/gallery";
       const galleryResponse = await axiosInstance.get(endpoint);
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 2500));
       
       return galleryResponse;
     },

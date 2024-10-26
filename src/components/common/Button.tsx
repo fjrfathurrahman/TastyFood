@@ -7,7 +7,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, Var
   size?: 'default' | 'sm' | 'md' | 'rounded'
 }
 
-const Button: React.FC<ButtonProps> = ({className, variant = 'default', size = 'default', ...props}) => {
+const Button: React.FC<ButtonProps> = ({ className, variant = 'default', size = 'default', ...props}) => {
   return <button className={cn(ButtonVariants({className, variant, size}))} {...props}/>
 }
 

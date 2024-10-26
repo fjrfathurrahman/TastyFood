@@ -1,12 +1,12 @@
 import { cva } from "class-variance-authority";
 
 export const ButtonVariants = cva(
-  'flex items-center justify-center rounded-xl font-medium duration-300 ease-out transition-all hover:bg-black/85',
+  'flex items-center justify-center rounded-xl font-medium duration-300 ease-out transition-all',
   {
     variants: {
       variant: {
-        default: 'bg-black text-white',
-        outlined: '',
+        default: 'bg-black text-white hover:bg-black/85',
+        outlined: 'border-2 border-black',
         icon: 'bg-black text-white rounded-full',
       },
       size: {

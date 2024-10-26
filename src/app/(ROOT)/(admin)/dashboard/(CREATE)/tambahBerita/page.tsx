@@ -1,6 +1,6 @@
 "use client";
 
-import usePostNews from "@/lib/hooks/berita/usePostNews";
+import usePostNews from "@/lib/hooks/news/usePostNews";
 import { Form, RenderInput } from "@/components/fragments/Form";
 import { NewsSchema, SchemaNews } from "@/resource/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -31,10 +31,6 @@ export default function TambahBerita() {
     onSuccess: () => {
       Toast.Success("Berita Berhasil Ditambahkan", "/dashboard/tableBerita")
       reset();
-    },
-    onError: (error) => {
-      Toast.Error("Terjadi Kesalahan, Silahkan Coba Lagi");
-      console.log(error);
     },
   });
 

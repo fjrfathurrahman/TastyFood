@@ -13,7 +13,7 @@ const Section: React.FC<LayoutProps> = ({ className = "", sizing = [], spacing =
 }
 
 const Container: React.FC<LayoutProps> = ({ className = "", sizing = ['min-h-[648px]'], spacing = ['py-16', 'sm:py-24'], flexbox = [], grid = [], ...props}) => {
-  const classNames = clsx('container mx-auto border-b', className, sizing, spacing, flexbox, grid);
+  const classNames = clsx('container mx-auto', className, sizing, spacing, flexbox, grid);
 
   return <div className={classNames} {...props}>{props.children}</div>
 }

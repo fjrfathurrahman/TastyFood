@@ -2,12 +2,12 @@
 
 import { Box } from "@/components/layout";
 import { NewsItem } from "@/lib/types/response";
-import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Skeleton } from "@nextui-org/react";
+import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/react";
 import { IoEllipsisVerticalSharp } from "react-icons/io5";
 import FormatDate from "@/lib/utils/FormatDate";
 import Image from "next/image";
 import Link from "next/link";
-import useGetNews from "@/lib/hooks/berita/useGetNews";
+import useGetNews from "@/lib/hooks/news/useGetNews";
 import Dompurify from "dompurify";
 import { Loader } from "@/components/loader";
 
@@ -49,7 +49,7 @@ function RenderGallery({ data }: { data: NewsItem }) {
       <div>
         <p>Content:</p>
         <div
-          className="prose px-4 py-6 border rounded-xl mt-4"
+          className="prose px-4 py-6 w-max border rounded-xl mt-4 tiptap"
           dangerouslySetInnerHTML={{
             __html: Dompurify.sanitize(data?.content as string),
           }}

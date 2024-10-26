@@ -2,8 +2,8 @@ import { AxiosError } from "axios";
 
 // type untuk post data 
 export type PostProps = {
-  onSuccess: () => void
-  onError: (error: AxiosError) => void 
+  onSuccess?: () => void
+  onError?: (error: AxiosError) => void 
 }
 
 export type ResponseData = {
@@ -23,7 +23,7 @@ export interface GalleryItem {
 }
 
 export interface NewsItem {
-  id: number;
+  id: number ;
   title: string;
   excerpt: string;
   content: string;

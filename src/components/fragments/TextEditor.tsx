@@ -13,7 +13,7 @@ import Underline from '@tiptap/extension-underline';
 export const TextEditor = ({ value, onChange, label } : TextEditorProps) => {
   const editor = useEditor({
     extensions: [
-      Heading.configure({ levels: [1, 2, 3], HTMLAttributes: { class: 'prose' } }),
+      Heading.configure({ levels: [1, 2, 3], HTMLAttributes: { class: 'tiptap' } }),
       Paragraph.configure({ HTMLAttributes: { class: 'prose font-medium text-sm' } }),
       TextAlign.configure({ types: ['heading', 'paragraph'] }),
       Document,
@@ -27,15 +27,16 @@ export const TextEditor = ({ value, onChange, label } : TextEditorProps) => {
     onUpdate: ({ editor }) => {
       onChange(editor.getHTML());
     },
+    autofocus: true,
     editorProps: {
       attributes: {
-        class: 'max-w-full p-4 min-h-[200px] bg-gray-100 rounded-lg focus:outline-none',
+        class: 'max-w-full p-4 min-h-[200px] bg-gray-100 rounded-lg focus:outline-none tiptap prose',
       },
     },
   });
 
   return (
-    <div className="max-w-full prose-p:text-red-500 border flex flex-col gap-2">
+    <div className="max-w-max flex flex-col gap-2">
       <label className="text-sm font-medium">{label}</label>
       <Toolbar editor={editor} />
       <EditorContent editor={editor} />

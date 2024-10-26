@@ -1,15 +1,13 @@
 "use client";
 
-import useGetNews from "@/lib/hooks/berita/useGetNews";
-import { axiosInstance } from "@/lib/axios";
+import useGetNews from "@/lib/hooks/news/useGetNews";
 import { RowTableProps } from "@/lib/types/elements";
 import { getKeyValue } from "@/lib/utils/GetKeyValue";
 import { Button, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@nextui-org/react";
-import { useMutation } from "react-query";
-import { toast } from "sonner";
 import { List } from "@/components/layout";
 import { IoMdAdd } from "react-icons/io";
 import Link from "next/link";
+import useDeleteNews from "@/lib/hooks/news/useDeleteNews";
 
 const columns = [
   { key: "number", label: "No." },
@@ -21,13 +19,16 @@ const columns = [
 export default function TableBerita() {
   const { data, isLoading, isError } = useGetNews();
 
+  const feedbackText = isLoading ? "Loading..." : isError ? "Terjadi kesalahan pada server" : data.length === 0 ? "Data tidak ditemukan" : "";
+
+
   return (
     <>
       <List>
         <h2>Table Berita</h2>
         <p>
           Mengelola semua koleksi berita yang ada dengan
-          <span className="text-primary underline font-semibold">total {data?.length} item</span>
+          <span className="text-primary underline font-semibold">{" "}total {data?.length} item{" "}</span>
           dalam sistem. Anda dapat menambah, mengedit, atau menghapus data
           galeri sesuai kebutuhan langsung dari tabel ini untuk memastikan semua
           informasi tetap up-to-date.
@@ -45,52 +46,30 @@ export default function TableBerita() {
 
       <Table aria-label="Table" className="min-w-full mt-12">
         <TableHeader columns={columns}>
-          {(column) => (
-            <TableColumn key={column.key}>{column.label}</TableColumn>
-          )}
+          {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
         </TableHeader>
 
-        <TableBody items={data as RowTableProps[]} 
-          emptyContent={ isLoading ? "Loading..." : isError ? "Terjadi kesalahan pada server" : data.length === 0 ? "Data tidak ditemukan" : ""}
-        >
-          {RenderData({ data })}
+        <TableBody items={data as RowTableProps[]} emptyContent={feedbackText}>
+          {RenderCell(data)}
         </TableBody>
       </Table>
     </>
   );
 }
 
-function RenderData(props: { data: RowTableProps[] }) {
-  const { refetch } = useGetNews();
+function RenderCell(data: RowTableProps[]) {
+  const { mutate: deleteGallery } = useDeleteNews();
 
-  const { mutate: deleteGallery } = useMutation({
-    mutationFn: async (id: number) => {
-      const galleryResponse = await axiosInstance.delete("/news/" + id);
-      return galleryResponse;
-    },
-    onSuccess: () => {
-      toast.success("Galeri Berhasil dihapus");
-      refetch();
-    },
-    onError: (error) => {
-      console.log(error);
-      toast.error("Terjadi kesalahan, silahkan coba lagi");
-    },
-  });
+  const styleBase: React.CSSProperties = {
+    textOverflow: "ellipsis",
+    textWrap: "wrap",
+  }
 
-  return props.data.map((item: RowTableProps, index: number) => (
+  return data.map((item: RowTableProps, index: number) => (
     <TableRow key={item.id}>
       {(columnKey) => (
-        <TableCell
-          style={{
-            textOverflow: "ellipsis",
-            textWrap: "wrap",
-            width: columnKey === "image" ? "300px" : "auto",
-          }}
-        >
-          {
-            getKeyValue( item, columnKey as string, index, "Berita", deleteGallery) as React.ReactNode
-          }
+        <TableCell style={{...styleBase, width: columnKey === "image" ? "300px" : "auto" }}>
+          {getKeyValue( item, columnKey as string, index, "Berita", deleteGallery) as React.ReactNode}
         </TableCell>
       )}
     </TableRow>

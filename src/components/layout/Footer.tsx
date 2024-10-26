@@ -5,7 +5,7 @@ import { Link } from "@nextui-org/react";
 import { MdFacebook, MdOutlineLocationOn, MdOutlineLocalPhone, MdOutlineMailOutline   } from "react-icons/md";
 import { FaXTwitter, FaYoutube } from "react-icons/fa6";
 
-export const Footer = () => {
+const Footer = () => {
   // use Get Company
 
   return (
@@ -58,7 +58,7 @@ export const Footer = () => {
               <h5 className="font-bold">Contact Info</h5>
               {InfoContact.map((item) => (
                 <Link key={item.name} href={item.link} className="text-white flex items-center gap-2">
-                  {item.icon}
+                  <span className="text-2xl">{item.icon}</span>
                   {item.value}
                 </Link>
               ))}
@@ -67,15 +67,18 @@ export const Footer = () => {
 
         </Box>
 
-        <div className="border-t text-center pt-4 mt-12">
-          <small>
+        <div className="border-t text-center pt-12 mt-12">
+          <p>
             Copyright &copy; {new Date().getFullYear()}, All rights reserved.
-          </small>
+          </p>
         </div>
       </Layout.Container>
     </Layout.Section>
   );
 };
+
+export default Footer;
+
 
 const Menu = [
   {

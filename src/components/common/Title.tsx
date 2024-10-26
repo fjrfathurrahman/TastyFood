@@ -1,9 +1,14 @@
-import React from "react";
+import clsx from "clsx";
 
-const Title = ({ text }: { text: string }) => {
+interface TitleProps extends React.HTMLAttributes<HTMLDivElement> {
+  text: string;
+  center?: boolean;
+}
+
+const Title = ({ text, center, ...props }: TitleProps) => {
   return (
-    <div className="pb-4 pt-2">
-      <h3>{text}</h3>
+    <div className={clsx('pb-4 pt-2 flex items-center', center ? 'justify-center' : '')} {...props}>
+      <h3 className="font-bold">{text}</h3>
     </div>
   );
 };

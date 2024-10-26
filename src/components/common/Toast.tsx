@@ -2,9 +2,9 @@ import Link from "next/link";
 import { LuCheckCircle } from "react-icons/lu";
 import { toast } from "sonner";
 
-const Success = (message: string, url: string) => {
+const Success = (message: string, url?: string) => {
   return toast.success(
-    <Link href={url} className="flex items-center gap-2.5 text-sm">
+    <Link href={url?? "#"} className="flex items-center gap-2.5 text-sm">
       <LuCheckCircle size={18} />
       {message}
     </Link>

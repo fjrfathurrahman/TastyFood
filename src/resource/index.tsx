@@ -35,6 +35,7 @@ export const Menu = [
     icon: <Icons.HiOutlineBuildingOffice2 size={defaultIconSize} />,
   },
 ];
+
 const Service = [
   {
     name: "User",
@@ -48,7 +49,7 @@ const Service = [
   },
   {
     name: "Logout",
-    link: "/dashboard/logout",
+    link: "/",
     icon: <Icons.MdLogout size={defaultIconSize} />,
   },
 ];
@@ -130,11 +131,59 @@ const News = [
   },
 ]
 
+const Company = [
+  {
+    name: 'company_name',
+    label: 'Nama Perusahaan',
+  },
+  {
+    name: 'description',
+    label: 'Deskripsi Perusahaan',
+  },
+  {
+    name: 'address',
+    label: 'Alamat Perusahaan',
+  },
+  {
+    name: 'address_url',
+    label: 'Link Alamat Perusahaan',
+  },
+  {
+    name: 'city',
+    label: 'Kota Perusahaan',
+  },
+  {
+    name: 'country',
+    label: 'Negara Perusahaan',
+  },
+  {
+    name: 'phone',
+    label: 'Telepon Perusahaan',
+  },
+  {
+    name: 'email',
+    label: 'Email Perusahaan',
+  },
+  {
+    name: 'facebook',
+    label: 'Facebook',
+  },
+  {
+    name: 'instagram',
+    label: 'Instagram',
+  },
+  {
+    name: 'twitter',
+    label: 'Twitter',
+  }
+]
+
 
 const Inputs = {
   Gallery,
   Authentication,
-  News
+  News,
+  Company
 }
 
 const Menus = {
