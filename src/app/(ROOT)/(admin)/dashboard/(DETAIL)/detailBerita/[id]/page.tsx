@@ -9,7 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 import useGetNews from "@/lib/hooks/news/useGetNews";
 import Dompurify from "dompurify";
-import { Loader } from "@/components/loader";
+import { Loader } from "@/components/skeletons";
 
 export default function DetailBerita({ params }: { params: { id: string } }) {
   const { data, isLoading } = useGetNews(params.id);

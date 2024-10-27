@@ -3,9 +3,10 @@
 import { Button, Title } from "@/components/common";
 import Image from "@/components/common/Image";
 import { Layout, List } from "@/components/layout";
-import { Loader } from "@/components/loader";
+import { Loader } from "@/components/skeletons";
 import useGetGallery from "@/lib/hooks/gallery/useGetGallery";
 import { GalleryItem } from "@/lib/types/response";
+import Link from "next/link";
 
 export const HighlightGallery = () => {
   const { data, isLoading } = useGetGallery();
@@ -23,7 +24,9 @@ export const HighlightGallery = () => {
           )}
         </div>
 
-        <Button>LIHAT LEBIH BANYAK</Button>
+        <Button>
+          <Link href={"/galeri"}>LIHAT LEBIH BANYAK</Link>
+        </Button>
       </List>
     </Layout.Container>
   );

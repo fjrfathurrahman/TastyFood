@@ -13,7 +13,7 @@ export default function usePutCompany() {
       return companyResponse;
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["company"] });
+      queryClient.invalidateQueries({ queryKey: ["company/1"] });
       Toast.Success("Berhasil menggubah data perusahaan");
     },
     onError: () => {

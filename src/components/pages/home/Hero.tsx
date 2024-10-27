@@ -11,7 +11,7 @@ export const Hero = () => {
   const { isXLarge, isLarge } = Breakpoints();
 
   return (
-    <Layout.Section bg="bg-zinc-100">
+    <Layout.Section bg="bg-zinc-100" className="overflow-x-hidden">
       <Layout.Container spacing={['py-36']}>
         <Box className="grid lg:grid-cols-2">
           <ListAnimation direction="vertical">

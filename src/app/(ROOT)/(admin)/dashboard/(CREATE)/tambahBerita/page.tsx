@@ -37,6 +37,9 @@ export default function TambahBerita() {
   return (
     <FormProvider {...methods}>
       <Form onSubmit={handleSubmit(onSubmit)}>
+
+        <Form.Header headline="Tambah Berita Baru" description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, voluptates necessitatibus? Optio pariatur repellendus quaerat dolores omnis, doloribus fugiat, voluptas distinctio laboriosam, fuga sapiente atque?" />
+        
         <Form.Body>
           {Inputs.News.map((input) => (
             <RenderInput key={input.name} {...input} />

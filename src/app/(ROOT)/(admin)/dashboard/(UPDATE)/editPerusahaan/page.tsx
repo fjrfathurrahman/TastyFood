@@ -68,8 +68,13 @@ export default function EditPerusahaan() {
 
 const Loader = () => {
   return [1, 2, 3, 4, 5, 6].map((item) => (
-    <Skeleton key={item} className="rounded-lg">
-      <div className="bg-default-700 py-6 rounded-lg" />
-    </Skeleton>
+    <div key={item}>
+      <Skeleton className="rounded-lg w-44 mb-3">
+        <div className="bg-default-700 py-3 rounded-lg" />
+      </Skeleton>
+      <Skeleton className="rounded-lg">
+        <div className="bg-default-700 py-6 rounded-lg" />
+      </Skeleton>
+    </div>
   ));
 };

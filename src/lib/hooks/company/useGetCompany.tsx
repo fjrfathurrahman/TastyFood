@@ -10,6 +10,8 @@ export default function useGetCompany() {
 
       return (await companyResponse).data.data;
     },
+    staleTime: 5 * 60 * 1000, // Data dianggap fresh selama 5 menit
+    cacheTime: 30 * 60 * 1000, // Data tetap di cache selama 30 menit
   });
 
   return {

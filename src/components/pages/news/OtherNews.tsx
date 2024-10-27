@@ -4,7 +4,7 @@ import { Title } from "@/components/common";
 import { NewsItem } from "@/lib/types/response";
 import { Box, Layout, List } from "@/components/layout";
 import useGetNews from "@/lib/hooks/news/useGetNews";
-import { Loader } from "@/components/loader";
+import { Loader } from "@/components/skeletons";
 import { CardNews } from "@/components/common/Card";
 
 export const OtherNews = () => {

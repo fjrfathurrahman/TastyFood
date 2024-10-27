@@ -2,7 +2,7 @@
 
 import { Title } from "@/components/common";
 import { Layout } from "@/components/layout";
-import { Loader } from "@/components/loader";
+import { Loader } from "@/components/skeletons";
 import Image from "@/components/common/Image";
 import useGetGallery from "@/lib/hooks/gallery/useGetGallery";
 

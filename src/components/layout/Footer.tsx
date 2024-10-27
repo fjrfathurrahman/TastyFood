@@ -1,41 +1,39 @@
+'use client';
+
 import Box from "./Box";
 import Layout from "./Layout";
 import List from "./List";
 import { Link } from "@nextui-org/react";
 import { MdFacebook, MdOutlineLocationOn, MdOutlineLocalPhone, MdOutlineMailOutline   } from "react-icons/md";
 import { FaXTwitter, FaYoutube } from "react-icons/fa6";
+import useGetCompany from "@/lib/hooks/company/useGetCompany";
 
 const Footer = () => {
-  // use Get Company
+  const { data } = useGetCompany();
 
   return (
     <Layout.Section bg="bg-black" className="text-white">
       <Layout.Container sizing={"h-max"}>
       
-        <Box className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <Box className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <List>
-            <h3 className="font-bold">Tasty Food</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-              minus alias numquam consequatur nam iusto. At minus doloribus
-              maxime impedit placeat cupiditate. Ab iste, labore saepe quasi
-              eveniet accusamus cum?
-            </p>
+            <h3 className="font-bold">{data?.company_name ?? '-'}</h3>
+            <p>{data?.description ?? '-'}</p>
 
             <div className="flex items-center gap-4">
-              <Link href="https://www.facebook.com/" className="text-3xl xl:text-4xl text-blue-400">
+              <Link href={`https://www.facebook.com/${data?.facebook}`} className="text-3xl xl:text-4xl text-blue-400">
                 <MdFacebook/>
               </Link>
-              <Link href="https://www.youtube.com/" className="text-3xl xl:text-4xl text-red-500">
+              <Link href={`https://www.youtube.com/channel/${data?.company_name}`} className="text-3xl xl:text-4xl text-red-500">
                 <FaYoutube/>
               </Link>
-              <Link href="https://www.twitter.com/" className="text-3xl xl:text-4xl text-white">
+              <Link href={`https://twitter.com/${data?.twitter}`} className="text-3xl xl:text-4xl text-white">
                 <FaXTwitter size={24}/>
               </Link>
             </div>
           </List>
 
-          <Box className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <Box className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:col-span-2 gap-8">
             <List>
               <h5 className="font-bold">Usefull Links</h5>
               {Menu.map((item) => (
@@ -56,12 +54,18 @@ const Footer = () => {
 
             <List>
               <h5 className="font-bold">Contact Info</h5>
-              {InfoContact.map((item) => (
-                <Link key={item.name} href={item.link} className="text-white flex items-center gap-2">
-                  <span className="text-2xl">{item.icon}</span>
-                  {item.value}
+                <Link href={`mailto:${data?.email}`} target="_blank" className="text-white flex items-center gap-2">
+                  <span className="text-2xl"><MdOutlineMailOutline/></span>
+                  {data?.email ?? '-'}
                 </Link>
-              ))}
+                <Link href={`tel:${data?.phone}`} className="text-white flex items-center gap-2">
+                  <span className="text-2xl"><MdOutlineLocalPhone/></span>
+                  {data?.phone ?? '-'}
+                </Link>
+                <Link href={data?.address_url} target="_blank" className="text-white flex items-center gap-2">
+                  <span className="text-2xl"><MdOutlineLocationOn/></span>
+                  {data?.address ?? '-'}
+                </Link>
             </List>
           </Box>
 
@@ -129,24 +133,3 @@ const Privacy = [
     link: "/faq",
   },
 ];
-
-const InfoContact = [
-  {
-    name: "Email",
-    value: "tastyfood@example.com",
-    link: "mailto:tastyfood@example.com",
-    icon: <MdOutlineMailOutline size={18} />,
-  },
-  {
-    name: "Phone",
-    value: "081234567890",
-    link: "tel:081234567890",
-    icon: <MdOutlineLocalPhone size={18} />,
-  },
-  {
-    name: "Address",
-    value: "Jl. Jendral Sudirman No. 1",
-    link: "https://goo.gl/maps/1aJ8nQqS5aY7k9Lp9",
-    icon: <MdOutlineLocationOn size={18} />,
-  }
-]

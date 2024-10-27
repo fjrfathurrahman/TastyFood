@@ -1,7 +1,7 @@
 'use client';
 
 import { Box } from "@/components/layout";
-import { Loader } from "@/components/loader";
+import { Loader } from "@/components/skeletons";
 import useGetGallery from "@/lib/hooks/gallery/useGetGallery";
 import { GalleryItem } from "@/lib/types/response";
 import FormatDate from "@/lib/utils/FormatDate";
