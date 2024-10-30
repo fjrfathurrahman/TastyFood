@@ -5,7 +5,7 @@ import { Icons } from "@/resource/icons";
 
 export const Toolbar = ({ editor }: { editor: Editor | null }) => {
   if (!editor) return null;
-
+  
   const options: ToolbarOption[] = [
     {
       icon: <Icons.MdOutlineFormatBold size={18} />,

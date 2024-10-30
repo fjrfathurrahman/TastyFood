@@ -1,4 +1,14 @@
 import { Icons } from "./icons";
+import about1 from '@/app/public/about/about1.jpg'
+import about2 from '@/app/public/about/about2.jpg'
+import about3 from '@/app/public/about/about3.jpg'
+import about4 from '@/app/public/about/about4.jpg'
+import about5 from '@/app/public/about/about5.jpg'
+
+import slider1 from '@/app/public/slider/slider1.jpg'
+import slider2 from '@/app/public/slider/slider2.jpg'
+import slider3 from '@/app/public/slider/slider3.jpg'
+import slider4 from '@/app/public/slider/slider4.jpg'
 
 // Ukuran ikon default yang bisa diatur global
 const defaultIconSize = 18;
@@ -114,8 +124,14 @@ const News = [
   {
     name: 'excerpt',
     type: 'text',
-    label: 'Excerpt',
-    placeholder: 'Masukan Excerpt Berita',
+    label: 'Ringkasan',
+    placeholder: 'Masukan Ringaksan Berita',
+  },
+  {
+    name: 'category',
+    type: 'text',
+    label: 'Kategori',
+    placeholder: 'Masukan Kategori Berita',
   },
   {
     name: 'image',
@@ -186,8 +202,52 @@ const Inputs = {
   Company
 }
 
+const Images = {
+  about: [
+    {
+      name: "about",
+      src: about1,
+    },
+    {
+      name: "about",
+      src: about2,
+    },
+    {
+      name: "about",
+      src: about3,
+    },
+    {
+      name: "about",
+      src: about4,
+    },
+    {
+      name: "about",
+      src: about5,
+    },
+  ],
+  slider: [
+    {
+      name: "slider",
+      src: slider1,
+    },
+    {
+      name: "slider",
+      src: slider2,
+    },
+    {
+      name: "slider",
+      src: slider3,
+    },
+    {
+      name: "slider",
+      src: slider4,
+    }
+  ]
+}
+
 const Menus = {
   Menu,
   Service
 }
-export { Inputs, Menus }
+
+export { Inputs, Menus, Images }

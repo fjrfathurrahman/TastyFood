@@ -2,7 +2,7 @@ import { axiosInstance } from "@/lib/axios";
 import { useQuery } from "react-query";
 
 export default function useGetGallery (id?: string) {
-  const { data, isLoading, isError, refetch } = useQuery({
+  const { data, isLoading, isError, refetch,status } = useQuery({
     queryKey: id ? ["gallery", id] : ["gallery"],
     queryFn: async () => {
       const endpoint = id ? `/gallery/${id}` : "/gallery";
@@ -14,6 +14,7 @@ export default function useGetGallery (id?: string) {
   });
 
   return {
+    status,
     refetch,
     result: data,
     data: id ? data?.data?.data || null : data?.data?.data || [], 

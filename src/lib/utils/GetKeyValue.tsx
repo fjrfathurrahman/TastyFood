@@ -36,7 +36,7 @@ export function getKeyValue( item: RowTableProps, columnKey: string, index: numb
     case "image":
       return item.image && (
         <div className="relative w-full h-12 md:h-72 shadow-lg rounded-xl">
-          <Image src={item.image} alt="image" className="w-auto h-auto rounded-xl object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"  fill />
+          <Image src={item.image.toString()} alt="image" className="w-auto h-auto rounded-xl object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"  fill />
         </div>
       )
 

@@ -1,5 +1,6 @@
 import ListAnimation from "@/components/animations/ListAnimation";
 import { Box, Layout } from "@/components/layout";
+import { Images } from "@/resource";
 import { Image } from "@nextui-org/react";
 
 export const VisiMisi = () => {
@@ -8,8 +9,8 @@ export const VisiMisi = () => {
       <Box grid={["grid", "grid-cols-1", "md:grid-cols-2", "gap-8"]}>
 
         <Box flexbox={["justify-center", "gap-6"]} className="hidden lg:flex">
-          {[1, 2].map((item) => (
-            <Image key={item} src="https://dummyimage.com/400x600/000/fff" alt="image" height={370}/>
+          {Images.about.slice(2, 4).map((item) => (
+            <Image key={item.name} src={item.src.src} alt="image" height={370} className="object-cover"/>
           ))}
         </Box>
 
@@ -38,7 +39,7 @@ export const VisiMisi = () => {
         </ListAnimation>
 
         <Box>
-          <Image src="https://dummyimage.com/800x400/000/fff" alt="image" className="md:hidden lg:block sm:w-[600px] sm:h-52 object-cover"/>
+          <Image src={Images.about[4].src.src} alt="image" className="md:hidden lg:block sm:w-[600px] sm:h-52 object-cover"/>
         </Box>
 
       </Box>

@@ -25,6 +25,7 @@ const NewsSchema = z.object({
   title: z.string().min(3, 'Judul harus minimal 3 karakter').max(20, 'Judul harus maksimal 20 karakter'),
   content: z.string().min(3, 'Deskripsi harus minimal 3 karakter'),
   excerpt: z.string().min(3, 'Ringkasan harus minimal 3 karakter').max(700, 'Ringkasan harus maksimal 700 karakter'),
+  category: z.string().refine((value) => ["New", "Berita Utama", "Berita Umum"].includes(value), 'Kategori hanya dapat berupa New, Berita Utama, dan Berita Umum'),
   image: z.custom<FileList>().optional().refine((files) => !files || files.length === 0 || ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
   'Hanya format .jpg, .jpeg, .png, .gif dan .svg yang didukung',
   )

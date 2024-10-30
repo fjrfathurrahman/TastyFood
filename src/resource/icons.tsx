@@ -19,6 +19,9 @@ import {
   MdOutlineFormatUnderlined,
 } from "react-icons/md";
 import { LuHeading1, LuHeading2, LuHeading3 } from "react-icons/lu";
+import { MdFacebook, MdOutlineLocationOn, MdOutlineLocalPhone, MdOutlineMailOutline   } from "react-icons/md";
+import { FaXTwitter, FaYoutube } from "react-icons/fa6";
+
 
 export const Icons = {
   MdOutlineFormatAlignCenter,
@@ -43,4 +46,10 @@ export const Icons = {
   MdLogout,
   RiGalleryLine,
   LuLayoutDashboard,
+  MdFacebook,
+  FaXTwitter,
+  FaYoutube,
+  MdOutlineLocationOn,
+  MdOutlineLocalPhone,
+  MdOutlineMailOutline,
 };

@@ -9,13 +9,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Layout } from "@/components/layout";
-
-const images = [
-  "https://dummyimage.com/1200x400/000/fff",
-  "https://dummyimage.com/1200x400/000/fff",
-  "https://dummyimage.com/1200x400/000/fff",
-  "https://dummyimage.com/1200x400/000/fff",
-];
+import { Images } from "@/resource";
 
 export const SliderImages = () => {
   return (
@@ -33,22 +27,19 @@ export const SliderImages = () => {
         loop={true}
         className="max-w-screen-lg rounded-xl"
       >
-        {images.map((src, index) => (
+        {Images.slider.map((src, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-72 sm:h-80 lg:h-full">
+            <div className="relative w-full h-80">
               <Image
-                src={src}
+                src={src.src.src}
                 alt="image"
-                className="w-full h-full object-cover brightness-75 hover:brightness-100"
+                className="w-full h-full object-cover origin-center object-center brightness-75 hover:brightness-100"
                 loading="lazy"
               />
             </div>
           </SwiperSlide>
         ))}
 
-        <div className="bg-black/10 backdrop-blur text-black mt-4 w-max px-8 mx-auto text-center shadow-lg rounded-xl">
-          <div className="swiper-pagination"/>
-        </div>
       </Swiper>
     </Layout.Container>
   );

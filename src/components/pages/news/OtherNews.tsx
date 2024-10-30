@@ -4,24 +4,22 @@ import { Title } from "@/components/common";
 import { NewsItem } from "@/lib/types/response";
 import { Box, Layout, List } from "@/components/layout";
 import useGetNews from "@/lib/hooks/news/useGetNews";
-import { Loader } from "@/components/skeletons";
 import { CardNews } from "@/components/common/Card";
+import { Result } from "@/components/fragments/Result";
 
 export const OtherNews = () => {
-  const { data, isLoading } = useGetNews();
+  const { data, status } = useGetNews();
 
   return (
-    <Layout.Container>
+    <Layout.Container sizing={'h-max'}>
       <List>
         <Title text="BERITA LAINNYA" />
 
-        <Box className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-          {isLoading
-            ? [1, 2, 3, 4, 5, 6].map(() => Loader.DetailLoader())
-            : data.length > 0
-            ? RenderNews(data)
-            : null}
-        </Box>
+        <Result status={status} card="CardNews" data={data}>
+          <Box className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+            {RenderNews(data)}
+          </Box>
+        </Result>
       </List>
     </Layout.Container>
   );

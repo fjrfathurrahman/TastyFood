@@ -1,5 +1,6 @@
 import ListAnimation from "@/components/animations/ListAnimation";
 import { Box, Layout } from "@/components/layout";
+import { Images } from "@/resource";
 import { Image } from "@nextui-org/react";
 
 export const AboutUs = () => {
@@ -26,10 +27,10 @@ export const AboutUs = () => {
           </ListAnimation>
 
           <Box flexbox={["justify-center", "gap-6"]} className="hidden lg:flex">
-            {[1, 2].map((item) => (
+            {Images.about.slice(0, 2).map((item) => (
               <Image
-                key={item}
-                src="https://dummyimage.com/400x600/000/fff"
+                key={item.name}
+                src={item.src.src}
                 alt="image"
                 height={370}
               />

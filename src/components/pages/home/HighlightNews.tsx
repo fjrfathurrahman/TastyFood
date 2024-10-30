@@ -6,26 +6,24 @@ import { NewsItem } from "@/lib/types/response";
 import useGetNews from "@/lib/hooks/news/useGetNews";
 import Link from "next/link";
 import { CardNews } from "@/components/common/Card";
-import { Loaders } from "@/components/skeletons/Card";
+import { Result } from "@/components/fragments/Result";
 
 export const HighlightNews = () => {
-  const { data, isLoading } = useGetNews();
+  const { data, status } = useGetNews();
 
   return (
-    <Layout.Section bg="bg-zinc-100" sizing={"h-max"}>
-      <Layout.Container>
+    <Layout.Section bg="bg-zinc-100" className="*:border">
+      <Layout.Container sizing={"h-max"} >
         <List className="items-center gap-8">
           <Title text="BERITA TERBARU" />
 
-          <Box className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-            {isLoading
-              ? [1, 2, 3, 4].map(() => Loaders.CardNews())
-              : RenderNews(data)}
-          </Box>
+            <Result status={status} data={data} card="CardNews">
+              <Box className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+                {RenderNews(data)}
+              </Box>
+            </Result>
 
-          <Button>
-            <Link href={"/berita"}>LIHAT LEBIH BANYAK</Link>
-          </Button>
+          {data.length > 0 ?  <Button><Link href={"/berita"}>LIHAT LEBIH BANYAK</Link></Button> : null}
         </List>
       </Layout.Container>
     </Layout.Section>
@@ -33,5 +31,7 @@ export const HighlightNews = () => {
 };
 
 function RenderNews(data: NewsItem[]) {
-  return data.slice(0, 5)?.map((item: NewsItem) => <CardNews key={item.id} {...item} />);
+  return data
+    .slice(0, 5)
+    ?.map((item: NewsItem) => <CardNews key={item.id} {...item} />);
 }

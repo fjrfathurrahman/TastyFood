@@ -1,13 +1,13 @@
 'use client';
 
-import { Box } from "@/components/layout";
-import { Loader } from "@/components/skeletons";
-import useGetGallery from "@/lib/hooks/gallery/useGetGallery";
-import { GalleryItem } from "@/lib/types/response";
 import FormatDate from "@/lib/utils/FormatDate";
-import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Skeleton,} from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
+import useGetGallery from "@/lib/hooks/gallery/useGetGallery";
+import { Box } from "@/components/layout";
+import { Loader } from "@/components/skeletons";
+import { GalleryItem } from "@/lib/types/response";
+import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger,} from "@nextui-org/react";
 import { IoEllipsisVerticalSharp } from "react-icons/io5";
 
 export default function DetailGaleri({ params }: { params: { id: string } }) {

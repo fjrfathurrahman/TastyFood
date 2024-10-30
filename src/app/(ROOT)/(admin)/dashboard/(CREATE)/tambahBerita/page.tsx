@@ -6,7 +6,7 @@ import { NewsSchema, SchemaNews } from "@/resource/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm } from "react-hook-form";
 import { Inputs } from "@/resource";
-import { Toast } from "@/components/common/Toast";
+import { Toast } from "@/components/common";
 
 export default function TambahBerita() {
   const methods = useForm<SchemaNews>({
@@ -22,6 +22,7 @@ export default function TambahBerita() {
     formData.append("title", data.title);
     formData.append("content", data.content);
     formData.append("excerpt", data.excerpt);
+    formData.append("category", data.category);
     if (data.image) formData.append("image", data.image[0]);
 
     mutate(formData);
@@ -29,7 +30,7 @@ export default function TambahBerita() {
 
   const { mutate, isLoading } = usePostNews({
     onSuccess: () => {
-      Toast.Success("Berita Berhasil Ditambahkan", "/dashboard/tableBerita")
+      Toast.Success("Berita Berhasil Ditambahkan", "/dashboard/tableBerita");
       reset();
     },
   });
@@ -37,16 +38,20 @@ export default function TambahBerita() {
   return (
     <FormProvider {...methods}>
       <Form onSubmit={handleSubmit(onSubmit)}>
+        <Form.Header
+          headline="Tambah Berita Baru"
+          description="Tambahkan Berita baru dengan mengisi formulir berikut ini."
+        />
 
-        <Form.Header headline="Tambah Berita Baru" description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, voluptates necessitatibus? Optio pariatur repellendus quaerat dolores omnis, doloribus fugiat, voluptas distinctio laboriosam, fuga sapiente atque?" />
-        
         <Form.Body>
           {Inputs.News.map((input) => (
             <RenderInput key={input.name} {...input} />
           ))}
         </Form.Body>
 
-        <Form.Footer isSubmitting={methods.formState.isSubmitting || isLoading} />
+        <Form.Footer
+          isSubmitting={methods.formState.isSubmitting || isLoading}
+        />
       </Form>
     </FormProvider>
   );

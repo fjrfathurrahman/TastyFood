@@ -10,8 +10,8 @@ import { imageVariants } from "@/resource/Variants";
 import Breakpoints from "@/lib/utils/Breakpoints";
 
 export const BannerDasboard = () => {
-  const { isLessThanSmall } = Breakpoints();
-  
+  const { isLessThanSmall, isSmall, isMedium, isLarge, isXLarge } = Breakpoints();
+
   return (
     <Box className="relative z-50">
       <div className="w-full h-36 sm:h-44 md:h-52 bg-gradient-to-tr from-blue-900 to-primary rounded-xl" />
@@ -22,9 +22,7 @@ export const BannerDasboard = () => {
         <small>Siapkah Anda untuk mengatur Dashboard Anda?</small>
       </div>
 
-      {isLessThanSmall ? null : (
-        AnimationImages()
-      )}
+      {isLessThanSmall ? null : isSmall || isMedium || isLarge || isXLarge ? AnimationImages() : null}
     </Box>
   );
 };
@@ -32,42 +30,42 @@ export const BannerDasboard = () => {
 const AnimationImages = () => {
   return (
     <>
-        <div className=" absolute top-0 left-0 right-0 md:right-14 z-50">
-          <motion.div
-            className="absolute top-8 right-12 z-40"
-            initial="hidden"
-            animate="visible"
-            custom={0}
-            variants={imageVariants}
-          >
-            <Image src={Burger} alt="Image" className="w-32 h-32" priority />
-          </motion.div>
+      <div className=" absolute top-0 left-0 right-0 md:right-14 z-50">
+        <motion.div
+          className="absolute top-8 right-12 z-40"
+          initial="hidden"
+          animate="visible"
+          custom={0}
+          variants={imageVariants}
+        >
+          <Image src={Burger} alt="Image" className="w-32 h-32" priority />
+        </motion.div>
 
-          <motion.div
-            className="absolute top-6 right-28 z-30"
-            initial="hidden"
-            animate="visible"
-            custom={1}
-            variants={imageVariants}
-          >
-            <Image src={Donat} alt="Image" className="w-32 h-32" priority />
-          </motion.div>
+        <motion.div
+          className="absolute top-6 right-28 z-30"
+          initial="hidden"
+          animate="visible"
+          custom={1}
+          variants={imageVariants}
+        >
+          <Image src={Donat} alt="Image" className="w-32 h-32" priority />
+        </motion.div>
 
-          <motion.div
-            className="absolute top-6 -right-4 z-30"
-            initial="hidden"
-            animate="visible"
-            custom={2}
-            variants={imageVariants}
-          >
-            <Image
-              src={Drink}
-              alt="Image"
-              className="w-32 h-32 rotate-[20deg] "
-              priority
-            />
-          </motion.div>
-        </div>
+        <motion.div
+          className="absolute top-6 -right-4 z-30"
+          initial="hidden"
+          animate="visible"
+          custom={2}
+          variants={imageVariants}
+        >
+          <Image
+            src={Drink}
+            alt="Image"
+            className="w-32 h-32 rotate-[20deg] "
+            priority
+          />
+        </motion.div>
+      </div>
     </>
   );
 };

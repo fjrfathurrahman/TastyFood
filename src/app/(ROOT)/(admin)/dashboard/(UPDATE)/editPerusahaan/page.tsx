@@ -11,7 +11,7 @@ import { Skeleton } from "@nextui-org/react";
 import { companySchema, SchemaCompany } from "@/resource/schema";
 
 export default function EditPerusahaan() {
-  const { data, isLoading } = useGetCompany();
+  const { data, isLoading } = useGetCompany("1");
   const { mutate, isLoading: isUpdating } = usePutCompany();
 
   const methods = useForm<SchemaCompany>({

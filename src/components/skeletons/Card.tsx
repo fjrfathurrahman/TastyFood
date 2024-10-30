@@ -1,8 +1,14 @@
-import { Card, CardBody, CardFooter, CardHeader, Skeleton } from "@nextui-org/react"
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Skeleton,
+} from "@nextui-org/react";
 
 export const CardNews = () => {
-  return (
-    <Card className="h-max">
+  return [1, 2, 3, 4].map((item) => (
+    <Card key={item} className="h-max">
       <CardHeader>
         <Skeleton className="w-full h-52 rounded-xl" />
       </CardHeader>
@@ -14,8 +20,15 @@ export const CardNews = () => {
         <Skeleton className="w-2/4 h-4 rounded-lg" />
       </CardFooter>
     </Card>
-  )
+  ));
+};
+
+const CardGallery = () => {
+  return [1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+    <Skeleton key={index} className="rounded-xl">
+      <div className="w-full h-44 sm:h-52 md:h-64 rounded-xl bg-default-700" />
+    </Skeleton>
+  ));
 }
 
-
-export const Loaders = { CardNews }
+export const Loaders = { CardNews, CardGallery };

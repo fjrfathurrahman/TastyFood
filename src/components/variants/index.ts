@@ -19,7 +19,10 @@ export const ButtonVariants = cva(
         variant: 'default',
         size: 'default',
       },
-    }
+      fullWidth: {
+        true: 'w-full',
+      }
+    },
   }
 )
 

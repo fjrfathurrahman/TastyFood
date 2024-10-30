@@ -1,6 +1,7 @@
 import { Skeleton } from "@nextui-org/react";
 
 export default function GalleryLoader() {
+  
   return [1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
     <Skeleton key={index} className="rounded-xl">
       <div className="w-full h-44 sm:h-52 md:h-64 rounded-xl bg-default-700" />

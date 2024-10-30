@@ -22,7 +22,7 @@ export default function EditGaleri({ params }: { params: { id: string } }) {
     formData.append('_method', 'PUT');
     formData.append('title', data.title);
     formData.append('description', data.description);
-    formData.append('category', data.category);
+    formData.append('category', data.category ?? 'New');
     if (data.image && data.image) {
       formData.append('image', data.image[0]);
     }

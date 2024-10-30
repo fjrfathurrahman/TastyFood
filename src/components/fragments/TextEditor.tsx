@@ -1,9 +1,9 @@
-import { useEditor, EditorContent } from '@tiptap/react';
+import { EditorContent, useEditor } from '@tiptap/react';
 import { Toolbar } from '../common/Toolbar';
 import { TextEditorProps } from '@/lib/types/elements';
+import { Heading } from '@tiptap/extension-heading';
 import Paragraph from '@tiptap/extension-paragraph';
 import TextAlign from '@tiptap/extension-text-align';
-import Heading from '@tiptap/extension-heading';
 import Document from '@tiptap/extension-document';
 import Text from '@tiptap/extension-text';
 import Bold from '@tiptap/extension-bold';
@@ -23,7 +23,7 @@ export const TextEditor = ({ value, onChange, label } : TextEditorProps) => {
       Underline
     ],
     content: !value ? '<p>Mulai menulis...</p>' : value,
-    immediatelyRender: true,
+    immediatelyRender: false,
     onUpdate: ({ editor }) => {
       onChange(editor.getHTML());
     },
