@@ -19,20 +19,17 @@ export const AmountData = () => {
         <p>Overview</p>
       </List>
       <Box flexbox={['flex', 'gap-4']}>
-        <Box className="border border-violet-500 text-violet-500 bg-violet-50 *:font-semibold rounded-full w-max h-10 px-4 flex justify-center items-center gap-2">
+        <Box className="border border-violet-500 *:text-violet-500 dark:*:text-violet-500 bg-violet-50 *:font-semibold rounded-full w-max h-10 px-4 flex justify-center items-center gap-2">
           <GrGallery />
-          {galleryCount?.length?? 0}
-          <p className="hidden sm:block text-sm">Data Galeri</p>
+          <p className="hidden sm:block text-sm">{galleryCount?.length?? 0} Data Galeri</p>
         </Box>
-        <Box className="border border-green-500 text-green-500 bg-green-50 font-semibold rounded-full w-max h-10 px-4 flex justify-center items-center gap-2">
+        <Box className="border border-green-500 *:text-green-500 dark:*:text-green-500 bg-green-50 font-semibold rounded-full w-max h-10 px-4 flex justify-center items-center gap-2">
           <IoNewspaperOutline/>
-          {newsCount?.length?? 0}
-          <p className="hidden sm:block text-sm">Data Berita</p>
+          <p className="hidden sm:block text-sm">{newsCount?.length?? 0} Data Berita</p>
         </Box>
-        <Box className="border border-red-500 text-red-500 bg-red-50 font-semibold rounded-full w-max h-10 px-4 flex justify-center items-center gap-2">
+        <Box className="border border-red-500 *:text-red-500 dark:*:text-red-500 bg-red-50 font-semibold rounded-full w-max h-10 px-4 flex justify-center items-center gap-2">
           <HiOutlineOfficeBuilding/>
-          {companyCount?.length?? 0}
-          <p className="hidden sm:block text-sm">Data Perusahaan</p>
+          <p className="hidden sm:block text-sm">{companyCount?.length?? 0} Data Perusahaan</p>
         </Box>
       </Box>
     </>

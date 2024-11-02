@@ -9,7 +9,7 @@ export const Statistics = () => {
         <p>Statistics</p>
       </List>
 
-      <div className="h-72 border rounded-xl flex justify-center items-center text-center">
+      <div className="h-72 border-2 border-dashed border-zinc-700 dark:border-zinc-300 rounded-xl flex justify-center items-center text-center">
         <p>Fitur belum tersedia, silahkan tunggu...</p>
       </div>
     </>

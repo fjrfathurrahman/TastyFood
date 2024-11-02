@@ -6,7 +6,7 @@ import { LuUser } from "react-icons/lu";
 import { MdOutlineSettings } from "react-icons/md";
 import { MdLogout } from "react-icons/md";
 import { RiGalleryLine } from "react-icons/ri";
-import { LuMoonStar, LuMenu } from "react-icons/lu";
+import { LuMoonStar, LuMenu, LuSunMoon } from "react-icons/lu";
 import { MdNotificationsNone } from "react-icons/md";
 import { LuLayoutDashboard } from "react-icons/lu";
 import {
@@ -24,6 +24,7 @@ import { FaXTwitter, FaYoutube } from "react-icons/fa6";
 
 
 export const Icons = {
+  LuSunMoon,
   MdOutlineFormatAlignCenter,
   MdOutlineFormatAlignJustify,
   MdOutlineFormatAlignLeft,

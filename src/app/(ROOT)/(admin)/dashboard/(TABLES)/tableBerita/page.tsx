@@ -6,7 +6,6 @@ import { getKeyValue } from "@/lib/utils/GetKeyValue";
 import { Button, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@nextui-org/react";
 import { List } from "@/components/layout";
 import { IoMdAdd } from "react-icons/io";
-import Link from "next/link";
 import useDeleteNews from "@/lib/hooks/news/useDeleteNews";
 
 const columns = [
@@ -34,12 +33,8 @@ export default function TableBerita() {
           informasi tetap up-to-date.
         </p>
         <List direction="horizontal">
-          <Button
-            variant="shadow"
-            color="primary"
-            startContent={<IoMdAdd size={24} />}
-          >
-            <Link href="/dashboard/tambahBerita">Buat Berita Baru</Link>
+          <Button as='a' href="/dashboard/tambahBerita" color="primary" startContent={<IoMdAdd size={24} />}>
+            Buat Berita Baru
           </Button>
         </List>
       </List>

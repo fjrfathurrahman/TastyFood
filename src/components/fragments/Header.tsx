@@ -8,10 +8,11 @@ import { usePathname } from "next/navigation";
 import { Menus } from "@/resource";
 import { Icons } from "@/resource/icons";
 import clsx from "clsx";
-
+import ToggleTheme from "@/lib/utils/ToggleTheme";
 
 export const Header = () => {
   const pathName = usePathname();
+  const { theme, toggleTheme } = ToggleTheme()
 
   return (
     <Box className="py-6 mb-8 border-b" flexbox={["flex", "justify-between", "items-center"]}>
@@ -24,8 +25,8 @@ export const Header = () => {
         <Button isIconOnly variant="light" size="sm">
           <Icons.MdNotificationsNone size={22} />
         </Button>
-        <Button isIconOnly variant="light" size="sm">
-          <Icons.LuMoonStar size={20} />
+        <Button isIconOnly variant="light" size="sm" onClick={toggleTheme}>
+          {theme !== 'light' ? <Icons.LuSunMoon size={20} /> : <Icons.LuMoonStar size={20} />}
         </Button>
 
         <Dropdown placement="bottom-end">

@@ -11,15 +11,15 @@ const Footer = () => {
   const { data, isLoading } = useGetCompany('1');
 
   return (
-    <Layout.Section bg="bg-black" className="text-white">
+    <Layout.Section bg="bg-black">
       <Layout.Container sizing={"h-max"}>
         {isLoading ? (
           "Loading..."
         ) : (
-          <Box className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <Box className="grid grid-cols-1 lg:grid-cols-3 gap-8 text-white">
             <List>
               <h3 className="font-bold">{data?.company_name ?? "-"}</h3>
-              <p>{data?.description ?? "-"}</p>
+              <p className="text-white">{data?.description ?? "-"}</p>
 
               <div className="flex items-center gap-4">
                 <Link
@@ -99,9 +99,7 @@ const Footer = () => {
         )}
 
         <div className="border-t text-center pt-12 mt-12">
-          <p>
-            Copyright &copy; {new Date().getFullYear()}, All rights reserved.
-          </p>
+          <p className="text-white">Copyright &copy; {new Date().getFullYear()}, All rights reserved.</p>
         </div>
       </Layout.Container>
     </Layout.Section>

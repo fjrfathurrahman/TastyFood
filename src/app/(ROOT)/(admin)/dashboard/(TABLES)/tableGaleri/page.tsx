@@ -1,7 +1,6 @@
 "use client";
 
 import useGetGallery from "@/lib/hooks/gallery/useGetGallery";
-import Link from "next/link";
 import { getKeyValue } from "@/lib/utils/GetKeyValue";
 import { Button, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@nextui-org/react";
 import { List } from "@/components/layout";
@@ -29,8 +28,8 @@ export default function TableGaleri() {
         <h2>Table Galeri</h2>
           <p>Mengelola semua koleksi galeri yang ada dengan<span className="text-primary underline font-semibold">{" "}total {data?.length} item{" "}</span> dalam sistem. Anda dapat menambah, mengedit, atau menghapus data galeri sesuai kebutuhan langsung dari tabel ini untuk memastikan semua informasi tetap up-to-date.</p>
           <List direction="horizontal">
-            <Button variant="shadow" color="primary" startContent={<IoMdAdd size={24} />}>
-              <Link href="/dashboard/tambahGaleri">Buat Galeri Baru</Link>
+            <Button as='a' href="/dashboard/tambahGaleri" color="primary" startContent={<IoMdAdd size={24} />}>
+              Buat Galeri Baru
             </Button>
           </List>
       </List>

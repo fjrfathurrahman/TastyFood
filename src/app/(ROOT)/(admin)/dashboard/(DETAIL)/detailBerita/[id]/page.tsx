@@ -48,8 +48,7 @@ function RenderGallery({ data }: { data: NewsItem }) {
 
       <div>
         <p>Content:</p>
-        <div
-          className="prose px-4 py-6 w-max border rounded-xl mt-4 tiptap"
+        <div className="prose px-4 py-6 w-max border rounded-xl mt-4 tiptap"
           dangerouslySetInnerHTML={{
             __html: Dompurify.sanitize(data?.content as string),
           }}
@@ -70,12 +69,10 @@ function RenderDropdown(id: number) {
 
       <DropdownMenu aria-label="Static Actions">
         <DropdownItem textValue="edit" key="edit" color="primary">
-          <Link href={`/dashboard/editBerita/${id}`} color="primary">
-            Edit Item {id}
-          </Link>
+          <Link href={`/dashboard/editBerita/${id}`} color="primary">Edit Item</Link>
         </DropdownItem>
         <DropdownItem textValue="delete" key="delete" className="text-danger" color="danger" onClick={() => alert("delete item " + id)}>
-          Delete Item {id}
+          Delete Item
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>

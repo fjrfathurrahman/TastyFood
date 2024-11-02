@@ -6,7 +6,7 @@ interface BoxProps extends TailwindResponsiveProps, React.HTMLAttributes<HTMLDiv
 }
 
 const Box: React.FC<BoxProps> = ({className = "", sizing = [], spacing = [], flexbox = [''], grid = [], ...props}) => {
-  const classNames = clsx(className, sizing, spacing, flexbox, grid);
+  const classNames = clsx('border-zinc-300 dark:border-zinc-700', className, sizing, spacing, flexbox, grid);
 
   return <div className={classNames} {...props}>{props.children}</div>;
 };

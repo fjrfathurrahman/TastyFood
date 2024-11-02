@@ -47,7 +47,6 @@ const Footer = (props: {
         type="submit"
         isDisabled={props.isSubmitting}
         isLoading={props.isSubmitting}
-        variant="shadow"
         color="primary"
       >
         {props.isSubmitting ? "Submitting..." : "Submit"}
