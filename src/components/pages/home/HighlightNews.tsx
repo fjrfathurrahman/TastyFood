@@ -31,7 +31,5 @@ export const HighlightNews = () => {
 };
 
 function RenderNews(data: NewsItem[]) {
-  return data
-    .slice(0, 5)
-    ?.map((item: NewsItem) => <CardNews key={item.id} {...item} />);
+  return data.slice(0, 5)?.map((item: NewsItem) => <CardNews key={item.id} {...item} />);
 }

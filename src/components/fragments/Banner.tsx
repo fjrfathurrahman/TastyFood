@@ -1,13 +1,14 @@
+'use client';
+
 import { usePathname } from "next/navigation"
 import { Layout } from "../layout"
 import banner from "@/app/public/banner.png"
 import Image from "next/image";
+import { MenuUser } from "@/resource";
 
 export const Banner = () => {
   const pathName = usePathname();
-
-  // Cari item menu berdasarkan pathName
-  const currentMenu = menu.find(item => item.link === pathName);
+  const currentMenu = MenuUser.find(item => item.link === pathName);
 
   return (
     <Layout.Section className={`${pathName === '/' ? 'hidden' : 'block'}`}>
@@ -27,26 +28,3 @@ export const Banner = () => {
     </Layout.Section>
   );
 };
-
-const menu = [
-  {
-    name: "Home",
-    link: "/",
-  },
-  {
-    name: "Tentang",
-    link: "/tentang",
-  },
-  {
-    name: "Galeri",
-    link: "/galeri",
-  },
-  {
-    name: "Berita",
-    link: "/berita",
-  },
-  {
-    name: "Kontak",
-    link: "/kontak",
-  },
-];

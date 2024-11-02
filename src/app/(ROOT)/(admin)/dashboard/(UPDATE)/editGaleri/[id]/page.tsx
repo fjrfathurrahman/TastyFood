@@ -22,7 +22,7 @@ export default function EditGaleri({ params }: { params: { id: string } }) {
     formData.append('_method', 'PUT');
     formData.append('title', data.title);
     formData.append('description', data.description);
-    formData.append('category', data.category ?? 'New');
+    formData.append('category', data.category);
     if (data.image && data.image) {
       formData.append('image', data.image[0]);
     }
@@ -32,7 +32,7 @@ export default function EditGaleri({ params }: { params: { id: string } }) {
 
   const { mutate, isLoading } = usePutGallery({
     onSuccess: () => {
-      Toast.Success('Berhasil meupdate galeri', '/dashboard/tableGaleri')
+      Toast.Success('Berhasil Update, Click untuk Lihat', '/dashboard/tableGaleri')
       reset();
     },
   })

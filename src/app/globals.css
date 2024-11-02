@@ -37,6 +37,16 @@
 
 }
 
+.bgMenu {
+  margin: 0 auto;
+  max-width: 1768px;
+  max-height: 750px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('public/banner.png');
+}
+
 ::-webkit-scrollbar {
   display: none;
 }

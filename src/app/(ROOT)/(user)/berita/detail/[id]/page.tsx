@@ -16,7 +16,7 @@ export default function DetailBerita({ params }: { params: { id: string } }) {
   }
 
   return (
-    <Layout.Container>
+    <Layout.Container className="relative z-50">
       <DetailNews data={data} isLoading={isLoading}>
         <DetailNews.Footer>
           <h4>BERITA LAINNYA</h4>

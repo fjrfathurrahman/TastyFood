@@ -5,6 +5,11 @@ import about3 from '@/app/public/about/about3.jpg'
 import about4 from '@/app/public/about/about4.jpg'
 import about5 from '@/app/public/about/about5.jpg'
 
+import menu1 from "@/app/public/menu/img-1.png";
+import menu2 from "@/app/public/menu/img-2.png";
+import menu3 from "@/app/public/menu/img-3.png";
+import menu4 from "@/app/public/menu/img-4.png";
+
 import slider1 from '@/app/public/slider/slider1.jpg'
 import slider2 from '@/app/public/slider/slider2.jpg'
 import slider3 from '@/app/public/slider/slider3.jpg'
@@ -43,6 +48,33 @@ export const Menu = [
     name: "Update Perusahaan",
     link: "/dashboard/editPerusahaan",
     icon: <Icons.HiOutlineBuildingOffice2 size={defaultIconSize} />,
+  },
+];
+
+export const MenuUser = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "Tentang",
+    link: "/tentang",
+  },
+  {
+    name: "Galeri",
+    link: "/galeri",
+  },
+  {
+    name: "Berita",
+    link: "/berita",
+  },
+  {
+    name: "Kontak",
+    link: "/kontak",
+  },
+  {
+    name: "Dashboard",
+    link: "/dashboard",
   },
 ];
 
@@ -147,6 +179,33 @@ const News = [
   },
 ]
 
+const MenuBest = [
+  {
+    title: "Spaghetti Carbonara",
+    image: menu1.src,
+    description:
+      "Spaghetti Carbonara adalah hidangan pasta klasik dari Italia yang terbuat dari pasta spaghetti yang lembut, dicampur dengan saus berbasis telur, keju parmesan, dan pancetta yang gurih. Hidangan ini memberikan rasa yang kaya, creamy, dan sedikit asin, cocok untuk makan siang atau makan malam yang cepat dan lezat.",
+  },
+  {
+    title: "Chicken Caesar Salad",
+    image: menu2.src,
+    description:
+      "Chicken Caesar Salad adalah salad sehat yang menyegarkan, terdiri dari potongan ayam panggang yang juicy di atas selada romaine yang renyah. Ditambahkan dengan crouton gurih, saus Caesar yang kaya rasa, dan keju parmesan yang lembut, salad ini menjadi pilihan sempurna untuk hidangan pembuka atau makan siang yang ringan.",
+  },
+  {
+    title: "Pizza Margherita",
+    image: menu3.src,
+    description:
+      "Pizza Margherita adalah pizza sederhana namun penuh cita rasa dari Italia yang dibuat dengan adonan tipis dan renyah, tomat segar, mozzarella meleleh, dan daun basil yang harum. Kombinasi bahan yang sederhana namun berkualitas membuat pizza ini sangat lezat dan menjadi favorit banyak orang.",
+  },
+  {
+    title: "Steak and Friesss",
+    image: menu4.src,
+    description: "Steak and Fries adalah hidangan klasik yang terdiri dari potongan daging steak yang dipanggang hingga sempurna, disajikan dengan kentang goreng renyah dan sayuran sebagai pelengkap. Hidangan ini cocok untuk kamu yang menginginkan makanan yang lezat dan memuaskan.",
+  },
+];
+
+
 const Company = [
   {
     name: 'company_name',
@@ -250,4 +309,4 @@ const Menus = {
   Service
 }
 
-export { Inputs, Menus, Images }
+export { Inputs, Menus, Images, MenuBest }
