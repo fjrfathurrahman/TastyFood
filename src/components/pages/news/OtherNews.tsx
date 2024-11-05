@@ -26,5 +26,5 @@ export const OtherNews = () => {
 };
 
 function RenderNews(data: NewsItem[]) {
-  return data.slice(0, 9).map((item: NewsItem) => <CardNews key={item.id} {...item}/>);
+  return data.slice(0, 9).map((item: NewsItem) => <CardNews key={item.id} item={item} />);
 }

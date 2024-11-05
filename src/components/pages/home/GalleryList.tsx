@@ -2,9 +2,9 @@
 
 import { Title } from "@/components/common";
 import { Layout } from "@/components/layout";
+import { Result } from "@/components/fragments/Result";
 import Image from "@/components/common/Image";
 import useGetGallery from "@/lib/hooks/gallery/useGetGallery";
-import { Result } from "@/components/fragments/Result";
 
 export const GalleryList = () => {
   const { data, status } = useGetGallery();

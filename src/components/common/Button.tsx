@@ -6,6 +6,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, Var
   variant?: 'default' | 'outlined' | 'icon'
   size?: 'default' | 'sm' | 'md' | 'rounded'
   fullWidth?: boolean
+  disabled?: boolean
 }
 
 const Button: React.FC<ButtonProps> = ({ className, fullWidth, variant = 'default', size = 'default', ...props}) => {

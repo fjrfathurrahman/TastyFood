@@ -27,9 +27,8 @@ export interface NewsItem {
   title: string;
   excerpt: string;
   content: string;
-  cetegory: string;
-  image: null | string | File;
   category: string;
+  image: null | string | File;
   created_at: string;
   updated_at: string;
 }

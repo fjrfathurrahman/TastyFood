@@ -12,7 +12,7 @@ export const Featured = () => {
   const { data } = useGetNews();
 
   const newsPrimary = data.find(
-    (news: { category: string }) => news.category === "Berita Utama"
+    (news: NewsItem) => news.category === "Berita Utama"
   );
 
 
@@ -48,11 +48,11 @@ const RenderDetail = (newsPrimary: NewsItem) => {
 const Loader = () => {
   return (
     <>
-      <Skeleton className="w-full h-72 lg:h-80 bg-default-900 rounded-2xl" />
+      <Skeleton className="w-full h-72 lg:h-80 bg-default-300 rounded-2xl" />
       <List direction="vertical" className="col-span-2">
-        <Skeleton className="w-3/4 h-8 bg-default-900 rounded-2xl" />
-        <Skeleton className="w-2/5 h-8 bg-default-900 rounded-2xl" />
-        <Skeleton className="mt-2 w-full h-16 bg-default-900 rounded-2xl" />
+        <Skeleton className="w-3/4 h-8 bg-default-300 rounded-2xl" />
+        <Skeleton className="w-2/5 h-8 bg-default-300 rounded-2xl" />
+        <Skeleton className="mt-2 w-full h-16 bg-default-300 rounded-2xl" />
       </List>
     </>
   );

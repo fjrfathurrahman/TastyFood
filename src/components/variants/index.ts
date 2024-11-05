@@ -21,9 +21,12 @@ export const ButtonVariants = cva(
       },
       fullWidth: {
         true: 'w-full',
-      }
+      },
+      disabled: {
+        true: 'opacity-50 cursor-not-allowed',
+      },
     },
-  }
+  },
 )
 
 export const LinkVariants = cva(

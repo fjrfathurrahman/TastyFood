@@ -35,5 +35,5 @@ function RenderOtherNews(currentId: string) {
   if (isLoading)
     return [1, 2, 3, 4].map((item) => <Loaders.CardNews key={item} />);
 
-  return data?.filter((item: NewsItem) => item.id !== Number(currentId)).slice(0, 4).map((item: NewsItem) => <CardNews key={item.id} {...item} />);
+  return data?.filter((item: NewsItem) => item.id !== Number(currentId)).slice(0, 4).map((item: NewsItem) => <CardNews key={item.id} item={item} />);
 }

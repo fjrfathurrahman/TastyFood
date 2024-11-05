@@ -91,26 +91,21 @@ const UpdateNewsSchema = z.object({
   content: z.string().min(3, "Deskripsi harus minimal 3 karakter").optional(),
   excerpt: z.string().max(700, "Ringkasan harus maksimal 700 karakter").optional(),
   category: z.string().optional(),
-  image: z.custom<FileList>().optional().refine(
-      (files) =>
-        !files ||
-        files.length === 0 ||
-        ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
+  image: z.custom<FileList>().optional().refine((files) => !files || files.length === 0 || ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type),
       "Hanya format .jpg, .jpeg, .png, .gif dan .svg yang didukung"
-    )
-    .optional(),
+    ).optional(),
 });
 
 const companySchema = z.object({
-  company_name: z.string().min(1, "Company name is required"),
-  description: z.string().min(1, "Description is required"),
-  address: z.string().min(1, "Address is required"),
-  address_url: z.string().min(1, "Address URL is required"),
-  city: z.string().min(1, "City is required"),
-  country: z.string().min(1, "Country is required"),
-  email: z.string().email("Invalid email format"),
-  website: z.string().min(1, "Website is required"),
-  phone: z.string().min(1, "Phone is required"),
+  company_name: z.string().min(1, "Nama Perusahaan tidak boleh kosong"),
+  description: z.string().min(1, "Deskripsi tidak boleh kosong"),
+  address: z.string().min(1, "Alamat tidak boleh kosong"),
+  address_url: z.string().min(1, "Url Alamat tidak boleh kosong"),
+  city: z.string().min(1, "Kota tidak boleh kosong"),
+  country: z.string().min(1, "Negara tidak boleh kosong"),
+  email: z.string().email("Format email tidak valid").min(1, "Email wajib diisi"),
+  website: z.string(),
+  phone: z.string().min(1, "No Telp wajib diisi"),
   facebook: z.string().optional(),
   twitter: z.string().optional(),
   instagram: z.string().optional(),
@@ -119,6 +114,15 @@ const companySchema = z.object({
 });
 
 type SchemaCompany = z.infer<typeof companySchema>;
+
+const contactSchema = z.object({
+  subject: z.string().min(3, "Subject tidak boleh kosong"),
+  name: z.string().min(3, "Nama tidak boleh kosong"),
+  email: z.string().email("Format email tidak valid").min(3, "Email tidak boleh kosong"),
+  message: z.string().min(3, "Pesan tidak boleh kosong"),
+})
+
+type SchemaContact = z.infer<typeof contactSchema>;
 
 export {
   GallerySchema,
@@ -130,4 +134,6 @@ export {
   companySchema,
   type SchemaCompany,
   UpdateNewsSchema,
+  contactSchema,
+  type SchemaContact
 };

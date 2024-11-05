@@ -21,15 +21,15 @@ export const AmountData = () => {
       <Box flexbox={['flex', 'gap-4']}>
         <Box className="border border-violet-500 *:text-violet-500 dark:*:text-violet-500 bg-violet-50 *:font-semibold rounded-full w-max h-10 px-4 flex justify-center items-center gap-2">
           <GrGallery />
-          <p className="hidden sm:block text-sm">{galleryCount?.length?? 0} Data Galeri</p>
+          <p className="text-sm flex gap-2">{galleryCount?.length?? 0} <span className="hidden sm:block ">Data Galeri</span></p>
         </Box>
         <Box className="border border-green-500 *:text-green-500 dark:*:text-green-500 bg-green-50 font-semibold rounded-full w-max h-10 px-4 flex justify-center items-center gap-2">
           <IoNewspaperOutline/>
-          <p className="hidden sm:block text-sm">{newsCount?.length?? 0} Data Berita</p>
+          <p className="text-sm flex gap-2">{newsCount?.length?? 0} <span className="hidden sm:block">Data Berita</span></p>
         </Box>
         <Box className="border border-red-500 *:text-red-500 dark:*:text-red-500 bg-red-50 font-semibold rounded-full w-max h-10 px-4 flex justify-center items-center gap-2">
           <HiOutlineOfficeBuilding/>
-          <p className="hidden sm:block text-sm">{companyCount?.length?? 0} Data Perusahaan</p>
+          <p className="text-sm flex gap-2">{companyCount?.length?? 0} <span className="hidden sm:block">Data Perusahaan</span></p>
         </Box>
       </Box>
     </>

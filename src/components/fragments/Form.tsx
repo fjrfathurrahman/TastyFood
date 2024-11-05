@@ -42,13 +42,7 @@ const Footer = (props: {
   return (
     <div>
       {props.children}
-      <Button
-        className="w-full mt-2.5 font-medium"
-        type="submit"
-        isDisabled={props.isSubmitting}
-        isLoading={props.isSubmitting}
-        color="primary"
-      >
+      <Button className="w-full mt-2.5 font-medium" type="submit" isDisabled={props.isSubmitting} isLoading={props.isSubmitting} color="primary">
         {props.isSubmitting ? "Submitting..." : "Submit"}
       </Button>
     </div>

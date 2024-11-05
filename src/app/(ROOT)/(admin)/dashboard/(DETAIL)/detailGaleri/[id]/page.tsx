@@ -11,12 +11,12 @@ import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger,} from "@nextui-o
 import { IoEllipsisVerticalSharp } from "react-icons/io5";
 
 export default function DetailGaleri({ params }: { params: { id: string } }) {
-  const { data, isLoading } = useGetGallery(params.id);
+  const { data, status } = useGetGallery(params.id);
 
   return (
     <Box flexbox={["flex", "flex-col", "gap-4"]}>
 
-      {isLoading ? Loader.DetailLoader() : data ? RenderGallery({ data }) : (
+      {status === 'loading' ? Loader.DetailLoader() : data ? RenderGallery({ data }) : (
         <p>Galeri Tidak Ditemukan</p>
       )}
     </Box>

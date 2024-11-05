@@ -17,9 +17,9 @@ const columns = [
 ]
 
 export default function TableGaleri() {
-  const { data, isLoading, isError } = useGetGallery();
+  const { data, status } = useGetGallery();
 
-  const feedbackText = isLoading ? "Loading..." : isError ? "Terjadi kesalahan pada server" : data.length === 0 ? "Data tidak ditemukan" : "";
+  const feedbackText = status === 'loading' ? "Loading..." : status === 'error' ? "Terjadi kesalahan pada server" : data.length === 0 ? "Data tidak ditemukan" : "";
 
   return (
     <>
