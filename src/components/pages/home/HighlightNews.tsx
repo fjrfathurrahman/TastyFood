@@ -38,7 +38,7 @@ function RenderNews(data: NewsItem[]) {
   return (
     <Box className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-y-6 lg:gap-x-6 w-full">
       <div className="col-span-3">
-        {newsPrimary && <CardNews item={newsPrimary} />}
+        {newsPrimary ? <CardNews item={newsPrimary} /> : defaultPrimary && <CardNews item={defaultPrimary} /> }
       </div>
       <div className="col-span-4 grid grid-cols-1 sm:grid-cols-2 gap-6">
         {data.filter((item) => item.category !== "Berita Utama").slice(0, 5).map(item => (
@@ -49,3 +49,13 @@ function RenderNews(data: NewsItem[]) {
   );
 }
 
+export const defaultPrimary = {
+  id: 99999999,
+  title: "Resep Makanan Sehat untuk Diet",
+  content: "Diet sehat bukan hanya tentang mengurangi kalori, tetapi juga tentang memilih bahan makanan yang tepat. Dalam artikel ini, kita akan membahas berbagai resep makanan sehat yang dapat membantu Anda mencapai tujuan diet Anda.",
+  excerpt: "Pelajari cara membuat makanan sehat yang lezat dan bergizi untuk mendukung diet Anda.",
+  image: "https://img.freepik.com/free-photo/sukiyaki-pork-served-with-suki-spicy-sauce_1150-27328.jpg?ga=GA1.1.1003546452.1730452171&semt=ais_hybrid",
+  category: "Berita Utama",
+  created_at: "2024-11-05T10:00:00Z",
+  updated_at: "2024-11-05T10:00:00Z"
+}

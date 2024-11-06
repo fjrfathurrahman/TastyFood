@@ -2,10 +2,10 @@
 
 import { Box, Layout, List } from "@/components/layout";
 import { Button, Image, Skeleton } from "@nextui-org/react";
-import ImageUtama from "@/app/public/banner.png";
 import useGetNews from "@/lib/hooks/news/useGetNews";
 import formatDate from "@/lib/utils/FormatDate";
 import { NewsItem } from "@/lib/types/response";
+import { defaultPrimary } from "../home/HighlightNews";
 
 export const Featured = () => {
   const { status } = useGetNews();
@@ -20,7 +20,7 @@ export const Featured = () => {
     <Layout.Section bg="bg-zinc-100">
       <Layout.Container sizing="h-max">
         <Box className="grid grid-cols-1 lg:grid-cols-3 gap-y-8 lg:gap-x-8">
-          {status === "loading" ? Loader() : RenderDetail(newsPrimary)}
+          {status === "loading" ? Loader() : RenderDetail(newsPrimary ?? defaultPrimary)}
         </Box>
       </Layout.Container>
     </Layout.Section>
@@ -31,13 +31,13 @@ const RenderDetail = (newsPrimary: NewsItem) => {
 
   return (
     <>
-      <Image src={newsPrimary?.image?.toString() ?? ImageUtama.src} alt="image" className="w-full h-72 lg:h-full object-cover origin-center"/>
+      <Image src={newsPrimary?.image?.toString()} alt="image" className="w-full h-72 lg:h-full object-cover origin-center"/>
       <List direction="vertical" className="col-span-2">
         <div>
-          <h3 className="line-clamp-1">{newsPrimary?.title ?? "Judul Berita Utama"}</h3>
-          <small>Dibuat: {formatDate(newsPrimary?.created_at ?? "-")}</small>
+          <h3 className="line-clamp-1">{newsPrimary?.title}</h3>
+          <small>Dibuat: {formatDate(newsPrimary?.created_at)}</small>
         </div>
-        <p className="line-clamp-5">{newsPrimary.excerpt ??"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquid reiciendis reprehenderit blanditiis quasi nihil dolorem at molestiae nisi rerum dignissimos facere rem id laboriosam temporibus impedit consequuntur nobis beatae, neque amet. Laborum itaque eveniet ab labore veritatis architecto similique exercitationem, corporis sed, perspiciatis alias ducimus, at nam eaque iusto."}</p>
+        <p className="line-clamp-5">{newsPrimary.excerpt}</p>
 
         <Button as="a" href={`/berita/detail/${newsPrimary?.id}`} color="primary" className="font-semibold w-max mt-6">Baca Selengkapnya</Button>
       </List>

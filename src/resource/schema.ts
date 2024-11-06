@@ -62,14 +62,11 @@ const NewsSchema = z.object({
     .min(3, "Judul harus minimal 3 karakter")
     .max(20, "Judul harus maksimal 50 karakter"),
   content: z.string().min(3, "Deskripsi harus minimal 3 karakter"),
-  excerpt: z
-    .string()
-    .min(3, "Ringkasan harus minimal 3 karakter")
-    .max(700, "Ringkasan harus maksimal 700 karakter"),
+  excerpt: z.string().min(3, "Ringkasan harus minimal 3 karakter").max(700, "Ringkasan harus maksimal 700 karakter"),
   category: z
     .string()
     .refine(
-      (value) => ["New", "Berita Utama", "Berita Umum"].includes(value),
+      (value) => ["Berita Utama", "Berita Umum", "Berita Khusus"].includes(value),
       "Kategori hanya dapat berupa New, Berita Utama, dan Berita Umum"
     ),
   image: z
@@ -120,6 +117,7 @@ const contactSchema = z.object({
   name: z.string().min(3, "Nama tidak boleh kosong"),
   email: z.string().email("Format email tidak valid").min(3, "Email tidak boleh kosong"),
   message: z.string().min(3, "Pesan tidak boleh kosong"),
+  honeypot: z.string().optional(),
 })
 
 type SchemaContact = z.infer<typeof contactSchema>;

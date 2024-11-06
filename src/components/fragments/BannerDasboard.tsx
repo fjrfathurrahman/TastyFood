@@ -1,13 +1,13 @@
 "use client";
 
-import { Box } from "@/components/layout";
 import Burger from "@/app/public/design/Burger.webp";
 import Donat from "@/app/public/design/Donat.webp";
-import Drink from "@/app/public/design/drink.webp";
+import Drink from "@/app/public/design/Drink.webp";
 import Image from "next/image";
+import Breakpoints from "@/lib/utils/Breakpoints";
+import { Box } from "@/components/layout";
 import { motion } from "framer-motion";
 import { imageVariants } from "@/resource/Variants";
-import Breakpoints from "@/lib/utils/Breakpoints";
 
 export const BannerDasboard = () => {
   const { isLessThanSmall, isSmall, isMedium, isLarge, isXLarge } = Breakpoints();
